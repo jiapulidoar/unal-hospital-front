@@ -1,21 +1,24 @@
-import React from 'react';
-import { Switch, Route } from "react-router-dom";
-
-//--------------------------------------------------------------
-//Scenes
-//--------------------------------------------------------------
-
-import Home from "./scenes/Home";
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom'; 
+import configureStore from './Store/configureStore';
+import NavBar from './Components/Layouts/NavBar';
+import Main from './Components/Main/Main';
+import './App.css';
 
 
-function App() {
-  return (
-    <div className='App'>
-      <Switch>
-        <Route exact path='/' component={Home}/>
-      </Switch>
-    </div>
-  );
+const store = configureStore();
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Fragment>
+         <NavBar />
+          <Main />
+        </Fragment>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
