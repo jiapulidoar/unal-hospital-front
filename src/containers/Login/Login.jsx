@@ -56,7 +56,13 @@ export default class Login extends Component {
                         />
                       </div>
                     </div>
-                    <button className="button is-block is-info is-large is-fullwidth">
+                    <button
+                      className="button is-block is-info is-large is-fullwidth"
+                      onClick={() => {
+                        sessionStorage.setItem("jwt", "token_de_prueba");
+                        this.props.history.push("/dashboard");
+                      }}
+                    >
                       Ingresar{" "}
                       <i className="fa fa-sign-in" aria-hidden="true"></i>
                     </button>
