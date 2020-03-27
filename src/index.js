@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import NavBar from "./components/Layouts/NavBar";
 import Login from "./containers/Login/Login.jsx";
 import Dashboard from "./containers/Dashboard/Dashboard";
 
@@ -25,7 +24,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 ReactDOM.render(
   <>
-    <NavBar />
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Login} />
