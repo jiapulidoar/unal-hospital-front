@@ -5,9 +5,8 @@ import './index.css';
 import configureStore from './store/configureStore';
 
 import NavBar from './components/Layouts/NavBar';
-import Main from './components/Main/Main';  // TODO: reemplazar por Dashboard
 import Login from './containers/Login/Login.jsx'
-
+import Dashboard from './containers/Dashboard/Dashboard';
 
 const store = configureStore();
 
@@ -19,9 +18,8 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               {/* <Route path="/dashboard" component={Dashboard} /> */}
-              <Route path="/dashboard" component={Main} />
               <Route path="/login" component={Login} />
-              <Route path="/" component={Main} />
+              <Route path="/" component={Dashboard} />
             </Switch>
           </BrowserRouter>
         </div>
