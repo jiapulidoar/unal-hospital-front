@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom'; 
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import configureStore from './store/configureStore';
+import NavBar from './components/Layouts/NavBar';
+import Main from './components/Main/Main';
+
+import './App.css';
+
+const store = configureStore();
+
+class App extends Component {
+    render() {
+      return (
+        <BrowserRouter>
+          <Fragment>
+           <NavBar />
+            <Main />
+          </Fragment>
+        </BrowserRouter>
+      );
+    }
+  }
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();

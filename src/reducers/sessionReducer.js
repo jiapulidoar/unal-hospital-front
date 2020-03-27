@@ -1,5 +1,5 @@
 //Unused in this project
-import * as types from '../Actions/actionTypes'; 
+import * as types from '../actions/actionTypes'; 
 
 export default function sessionReducer(state = !!sessionStorage.jwt, action){
 	switch(action.type){
