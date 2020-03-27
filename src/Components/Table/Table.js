@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import * as consts from '../../consts';
 import {Row, Col, Icon,Button, Card, CardTitle,Table} from 'react-materialize';
 import mapimg from './mapcovid.png'

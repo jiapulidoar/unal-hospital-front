@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-materialize": "^2.4.8",
-    "react-redux": "^5.0.7",
+    "fibers": "^4.0.2",
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-materialize": "^2.6.0",
+    "react-redux": "^5.1.2",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.3",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,5 +31,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
+  }
 }
