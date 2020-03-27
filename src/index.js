@@ -6,8 +6,6 @@ import configureStore from './store/configureStore';
 import NavBar from './components/Layouts/NavBar';
 import Main from './components/Main/Main';
 
-import './App.css';
-
 const store = configureStore();
 
 class App extends Component {

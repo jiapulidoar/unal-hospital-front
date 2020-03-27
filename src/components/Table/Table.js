@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import * as consts from '../../consts';
 import {Row, Col, Icon,Button, Card, CardTitle,Table} from 'react-materialize';
 import mapimg from './mapcovid.png'
+
+import { dataRank } from '../../data'
+
 
 export default class DataTable extends Component {
   state = {
