@@ -28,3 +28,9 @@ export const dataRank = [
           risk: 5
       },
 ]
+
+export const dataStatistics = {
+    high:134,
+    mid:567,
+    low:1234
+  }

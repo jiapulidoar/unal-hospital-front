@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-import {Row, Col, Icon,Button, Card, CardTitle,Table} from 'react-materialize';
+import PropTypes from 'prop-types'
+import {Row, Col, Card, Table} from 'react-materialize';
 import mapimg from './mapcovid.png'
 
-import { dataRank } from '../../data'
-
-
-export default class DataTable extends Component {
+class DataTable extends Component {
   state = {
     data: [],
     statistics:{},
@@ -15,44 +12,21 @@ export default class DataTable extends Component {
 
   componentDidMount() {
     //Update data every minute except first time
-    if(this.state.times==0){
+    if(this.state.times===0){
       this.get()
     }
     this.interval=setInterval( () => {
       this.get()
       }, 59000);
   }
-/*
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }*/
 
   get(){
     //GET HTTP method
 
-    const dataStatistics = {
-      high:134,
-      mid:567,
-      low:1234
-    }
+    
     this.setState( (prevState) => ({
-      times: prevState.times + 1,
-      data: dataRank,
-      statistics: dataStatistics
+      times: prevState.times + 1
     }));
-  /*  axios.get(consts.SERVER_URL+'/get')
-      .then(response => {
-        console.log(response.data)
-        const data = response.data
-        this.setState( (prevState) => ({
-          times: prevState.times + 1,
-          data: data
-        }));
-    })
-      .catch(error => {
-        // handle error
-        console.log(error);
-      })  */
   }
 
   castDate(timestamp){
@@ -62,6 +36,9 @@ export default class DataTable extends Component {
   }
 
  render() {
+   const { ranking, statistics } = this.props
+   console.log(ranking);
+   
     //render HTML table
     return (
     <div>
@@ -80,10 +57,10 @@ export default class DataTable extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                   {this.state.data.map(data =>
+                   {ranking.map(patient =>
                      <tr>
-                      <td>{data.idPatient}</td>
-                      <td>{data.risk}</td>
+                      <td>{patient.idPatient}</td>
+                      <td>{patient.risk}</td>
                     </tr>
                    )}
                   </tbody>
@@ -100,21 +77,21 @@ export default class DataTable extends Component {
                 textClassName="white-text"
                 title="Riesgo alto"
               >
-                <h4>{this.state.statistics.high}</h4>
+                <h4>{statistics.high}</h4>
               </Card>
               <Card
                 className="orange"
                 textClassName="white-text"
                 title="Riesgo Medio"
               >
-                <h4>{this.state.statistics.mid}</h4>
+                <h4>{statistics.mid}</h4>
               </Card>
               <Card
                 className="green"
                 textClassName="white-text"
                 title="Riesgo Bajo"
               >
-                <h4>{this.state.statistics.low}</h4>
+                <h4>{statistics.low}</h4>
               </Card>
              </Card>
             </Col>
@@ -132,3 +109,10 @@ export default class DataTable extends Component {
     )
   }
 }
+
+DataTable.propTypes = {
+  ranking: PropTypes.array,
+  statistics: PropTypes.array
+}
+
+export default DataTable

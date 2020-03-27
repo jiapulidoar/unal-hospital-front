@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
 import ReactDOM from 'react-dom';
 import './index.css';
-import configureStore from './store/configureStore';
 
 import NavBar from './components/Layouts/NavBar';
 import Login from './containers/Login/Login.jsx'
 import Dashboard from './containers/Dashboard/Dashboard';
 
-const store = configureStore();
+// import configureStore from './store/configureStore';
+// const store = configureStore();
 
 class App extends Component {
     render() {

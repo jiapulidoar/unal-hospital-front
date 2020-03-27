@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { Route  , Link } from 'react-router-dom';
-import {Button, Icon, NavItem, Navbar} from 'react-materialize';
-
-var logo = <Link to='/'>Dashboard</Link>
+import { Icon, NavItem, Navbar} from 'react-materialize';
 
 class NavBar extends Component {
-  constructor(props){
-    super();
-  }
   render () {
     return(
       <Navbar brand={<a href="/">Dashboard</a>} right class="cyan lighten-2">
