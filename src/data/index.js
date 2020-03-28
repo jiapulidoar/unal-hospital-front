@@ -44,3 +44,4 @@ export const dataStatistics = {
         code: "green"
       }
   }
+}
