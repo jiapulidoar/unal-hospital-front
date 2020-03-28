@@ -1,11 +1,35 @@
-import React, { Component } from "react";
 import HospotalLogo from "../../images/hospital.png";
+import React, { Component , PropTypes } from "react";
+import { Link } from 'react-router-dom'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as sessionActions from '../../actions/sessionActions.js'
 
-export default class Login extends Component {
+class Login extends Component  {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      email: "",
+      password: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChange = event => {
+    console.log(event.target)
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.actions.loginUser(this.state);
+    this.props.history.push("/dashboard");
+    //window.location.reload();
+  }
+
   render() {
     return (
       <div>
@@ -40,10 +64,12 @@ export default class Login extends Component {
                       <div className="control">
                         <input
                           className="input is-large"
-                          type="email"
                           placeholder="Correo"
-                          autoFocus=""
-                        />
+                            id="email"
+                            type='email'
+                            onChange={this.handleChange}
+                            value={this.state.email}
+                            required/>
                       </div>
                     </div>
 
@@ -52,16 +78,16 @@ export default class Login extends Component {
                         <input
                           className="input is-large"
                           type="password"
+                          id="password"
                           placeholder="Contraseña"
+                          onChange={this.handleChange}
+                          value={this.state.password}
                         />
                       </div>
                     </div>
                     <button
                       className="button is-block is-info is-large is-fullwidth"
-                      onClick={() => {
-                        sessionStorage.setItem("jwt", "token_de_prueba");
-                        this.props.history.push("/dashboard");
-                      }}
+                      onClick={this.handleSubmit}
                     >
                       Ingresar{" "}
                       <i className="fa fa-sign-in" aria-hidden="true"></i>
@@ -77,3 +103,11 @@ export default class Login extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sessionActions,dispatch)
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Login);
