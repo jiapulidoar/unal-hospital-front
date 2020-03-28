@@ -30,7 +30,17 @@ export const dataRank = [
 ]
 
 export const dataStatistics = {
-    high:134,
-    mid:567,
-    low:1234
+    totals: {
+      highRisk:{
+        numPatients:134,
+        code: "red"
+      },
+      midRisk:{
+        numPatients:134,
+        code: "yellow"
+      },
+      lowRisk:{
+        numPatients:134,
+        code: "green"
+      }
   }
