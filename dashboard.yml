@@ -1,0 +1,162 @@
+swagger: "2.0"
+info:
+  description: "API design for the Dashboard front web app for the COVID19 Project in Universidad Nacional de Colombia. Here you can find the repos for the [dashboard](https://github.com/UNAL-Hospital-project/unal-hospital-front) and the [backend](https://github.com/UNAL-Hospital-project/unal-hospital-back) applictions."
+  version: "1.0.0"
+  title: "COVID19 Dashboard"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+# host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "login"
+  description: "Authentication procedures"
+- name: "dashboard"
+  description: "Information and statistics endpoint"
+schemes:
+- "https"
+paths:
+  /login:
+    post:
+      tags:
+      - "login"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        description: "The user name for login"
+        schema:
+          $ref: "#/definitions/Login"
+        required: true
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+        400:
+          description: "Invalid username/password supplied"
+  /dashboard/ranking:
+    post:
+      tags: 
+      - "dashboard"
+      summary: "Get ranking of patients according to infection risk"
+      operationId: "dashboardRanking"
+      produces: 
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        description: "Payload with filters and sorting fields"
+        schema:
+          $ref: "#/definitions/RankingRequest"
+      responses:
+        200:
+          description: "successful fetch"
+          schema:
+            $ref: "#/definitions/RankingResponse"
+  /dashboard/semaphore:
+    get:
+      tags:
+      - "dashboard"
+      summary: "Get semaphore counts (high, medium, low risk counts)"
+      operationId: "dashboardSemaphore"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/SemaphoreCount"
+   
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  RankingRequest:
+    type: "object"
+    properties:
+      patientsPerPage:
+        type: integer
+      page:
+        type: integer
+      filters:
+        type: object
+        properties:
+          risk_gte:
+            type: integer
+          age_gte:
+            type: integer
+          age_lte:
+            type: integer
+      columns:
+        type: "array"
+        items:
+          type: "string"
+      sortBy:
+        type: array
+        items:
+          type: object
+          properties:
+            sort:
+              type: string
+            type:
+              type: string
+  RankingResponse:
+    type: "array"
+    items:
+      $ref: "#/definitions/Patient"
+  SemaphoreCount:
+    type: "object"
+    properties:
+      high:
+        type: "integer"
+      medium:
+        type: "integer"
+      low:
+        type: "integer"
+  Patient:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      email:
+        type: "string"
+      cellphone:
+        type: "integer"
+  Login:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      password:
+        type: "string"
+      
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

@@ -48,7 +48,7 @@ class Login extends Component  {
         <link rel="stylesheet" type="text/css" href="./login.css" />
         <section className="hero is-success is-fullheight">
           <div className="hero-body">
-            <div className="container has-text-centered">
+            <div className="container">
               <div className="column is-4 is-offset-4">
                 <h3 className="title has-text-black">Inicio de Sesión</h3>
                 <hr className="login-hr" />
