@@ -6,9 +6,9 @@ import "./index.css";
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
-import NavBar from "./components/Layouts/NavBar";
 import Login from "./containers/Login/Login.jsx";
 import Dashboard from "./containers/Dashboard/Dashboard";
+import CityMap from './components/CityMap/CityMap';
 
 
 const store = configureStore();
@@ -33,9 +33,9 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
     <Fragment>
-      <NavBar />
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/map" component={CityMap} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </Switch>
     </Fragment>
