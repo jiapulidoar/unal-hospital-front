@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DataTable from '../../components/Table/Table'
-
+import PatientDetail from '../../components/PatientDetail/PatientDetail'
 import { dataRank, dataStatistics } from '../../data'
 
 export default class Dashboard extends Component {
@@ -24,13 +24,17 @@ export default class Dashboard extends Component {
         const { ranking, statistics } = this.state
         
         return (
-            <div id="dashboard-page">
-                <h1>Dashboard</h1>
-
-                { ranking && statistics ? 
-                    <DataTable ranking={ranking} statistics={statistics} /> 
-                    : ''
-                }
+            
+            <div class="container">
+                {/* <div id="dashboard-page">
+                    <h1>Dashboard</h1>
+    
+                    { ranking && statistics ? 
+                        <DataTable ranking={ranking} statistics={statistics} /> 
+                        : ''
+                    }
+                </div> */}
+                <PatientDetail id = "p1234"/>
             </div>
         )
     }

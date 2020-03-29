@@ -34,3 +34,28 @@ export const dataStatistics = {
     mid:567,
     low:1234
   }
+
+
+export const patientData = {
+  id: "p1234",
+  rank: 100,
+  risk: 4.0,
+  info:{
+    name: "aaaaaa bbbbb", //null if not
+    lastName: "Cccccccc Dddddddd", //null if not
+    age: 25,
+    sex: "Male"
+  },
+  contact: { // I guess one of these should be mandatory when registering
+    email: "test@test.com", 
+    phone: "3333333333"
+  },
+  location:{
+    latLng: "sdf",
+    address: "Cll. 20 #4-20G",
+    city: "Bogota",
+    district: "Antonio Nariño",
+    neighborhood: "Restrepo" 
+  },
+  //answers:{}
+}
