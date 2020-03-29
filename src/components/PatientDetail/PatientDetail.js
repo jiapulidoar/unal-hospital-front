@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import 'bulma/css/bulma.css'
 import { patientData } from '../../data/index.js'
+import Detail from './Detail'
+import Answers from './Answers'
+import History from './History'
 
 export default class PatientDetail extends Component {
   state = {
-    times: 0,
     patient_id: "",
     rank: 0,
     risk: 0,
     info: {},
     contact: {},
     location: {},
-    toggled: false
+    times: 0,
+    toggled: false,
+    tab: 1
   }
   constructor(props) {
     super(props)
@@ -30,7 +34,6 @@ export default class PatientDetail extends Component {
     //query from db
     // optional fields are name, lastName, email, latLng
     const patient = patientData
-
     this.setState( (prevState) => ({
       patient_id: patient_id,
       rank: patient.rank,
@@ -38,6 +41,7 @@ export default class PatientDetail extends Component {
       info: patient.info,
       contact: patient.contact,
       location: patient.location,
+      questions: patient.questions,
       times: prevState.times + 1,
       toggled: true
     }))
@@ -47,87 +51,57 @@ export default class PatientDetail extends Component {
     this.setState({toggled: false})
   }
 
-  riskColor(){
-    let risk = this.state.risk
-    return (risk < 4) ?'success' : (risk >= 4 && risk < 7) ? 'warning': 'danger'
-
-  }
-  
-  patientInfo(){
-    let info = this.state.info
-    let fields = []
-    if(info.name) fields.push(<p class="is-capitalized"><b>Nombre:</b> {info.name}</p>)
-    if(info.lastName) fields.push(<p class="is-capitalized"><b>Apellido:</b> {info.lastName}</p>)
-    return(
-      <div>
-        {fields}
-        <p class="is-capitalized"><b>Edad:</b> {info.age}</p>
-        <p class="is-capitalized"><b>Sexo:</b> {info.sex}</p>
-      </div>
-    )
+  tab() {
+    if(this.state.tab == 1) {
+      let detail = (({ rank, risk, info, contact, location }) => ({ rank, risk, info, contact, location }))(this.state)
+      return <Detail patient = {detail}/>
+    }else if(this.state.tab == 2) {
+      return <Answers questions = {this.state.questions}/>
+    }
+    return <History />
   }
 
-  patientContact(){
-    let contact = this.state.contact
-    let fields = []
-    if(contact.phone) fields.push(<p class="is-capitalized"><i class="fa fa-phone" aria-hidden="true"></i> {contact.phone}</p>)
-    if(contact.email) fields.push(<p class="is-capitalized"><i class="fa fa-envelope" aria-hidden="true"></i> {contact.email}</p>)
-    
-    return(<div>{fields}</div>)
-  }
-  
   render(){
     return(
+
       <div class="is-clipped">
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
+        <link rel="stylesheet" type="text/css" href="./PatientDetail.css"/>
+        
         <div class={`modal ${(this.state.toggled)?'is-active':'' }`}>
           <div class="modal-background"></div>
           <div class="modal-card">
             <header class="modal-card-head">
-              <p class="modal-card-title">Descripcion </p>
+              <p class="modal-card-title">Paciente </p>
               <button class="delete" aria-label="close" onClick={()=>{this.close()}}></button>
             </header>
             <section class="modal-card-body">
-              <div class="tile is-ancestor">
-                <div class="tile is-vertical">
-                  <div class="tile">
-                    <div class="tile is-parent is-vertical is-4">
-                      
-                      <div class="tile is-child box has-background-primary">
-                        <div className="content">
-                          <p className="title">Rank</p>
-                          <p className="subtitle">{this.state.rank}</p>
-                        </div>
-                      </div>
-                      <div class={`tile is-child box has-background-${this.riskColor()}`}>
-                        <div className="content">
-                          <p className="title">Risk</p>
-                          <p className="subtitle">{this.state.risk}</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="tile is-parent is-vertical">
-                      <div class="tile is-child box">
-                        <div class="content">
-                          <p className="title">Información</p>
-                          {this.patientInfo()}
-                        </div>
-                      </div>
-                      <div class="tile is-child box">
-                        <div className="content">
-                          <p className="title">Contacto</p>
-                          {this.patientContact()}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="tabs is-centered">
+                <ul >
+                  <li class={`${this.state.tab == 1 ? 'is-active' : ''}`}>
+                    <a onClick={()=>this.setState({tab: 1})}>
+                      <span class="icon is-small"><i class="fa fa-user" aria-hidden="true"></i></span>
+                      <span>Descripcion</span>
+                    </a>
+                  </li>
+                  <li class={`${this.state.tab == 2 ? 'is-active' : ''}`}>
+                  <a onClick={()=>this.setState({tab: 2})}>
+                      <span class="icon is-small"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+                      <span>Preguntas</span>
+                    </a>
+                  </li>
+                  <li class={`${this.state.tab == 3 ? 'is-active' : ''}`}>
+                  <a onClick={()=>this.setState({tab: 3})}>
+                      <span class="icon is-small"><i class="fa fa-file-text" aria-hidden="true"></i></span>
+                      <span>Historia</span>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              
+              {this.tab()}
             </section>
           </div>
         </div>

@@ -57,5 +57,10 @@ export const patientData = {
     district: "Antonio Nariño",
     neighborhood: "Restrepo" 
   },
+  questions: [
+    {question: "tiene coronavirus?", answer:"Vielleicht"},
+    {question: "es esto una pregunta?", answer:"Ja"},
+    {question: "io no se :v?", answer:"Ahhhhhh"}
+  ]
   //answers:{}
 }
