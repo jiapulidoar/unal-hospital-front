@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types'
-import mapimg from './mapcovid.png'
 
 class DataTable extends Component {
   state = {
@@ -35,9 +34,8 @@ class DataTable extends Component {
   }
 
  render() {
-   const { ranking, statistics } = this.props
-   console.log(ranking);
-   return(<div></div>)
+  //  const { ranking, statistics } = this.props
+   return <div></div>
     //render HTML table
     // return (
     // <div>

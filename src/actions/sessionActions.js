@@ -2,8 +2,8 @@
 import * as types from "./actionTypes";
 import sessionApi from '../Auth/sessionApi';
 
-var usertest = { username: "@david" };
-var tokentest = "token00";
+// var usertest = { username: "@david" };
+// var tokentest = "token00";
 
 export function loginSuccess() {
   console.log('logeado')
@@ -31,7 +31,7 @@ export function loginUser(credentials) {
       sessionStorage.setItem('client', response.client);
       sessionStorage.setItem('user',JSON.stringify(user));
 
-      if (response.token==undefined){
+      if (response.token===undefined){
         dispatch(logoutUser());
         /*swal(
           'usuario o contraseña invalidos',

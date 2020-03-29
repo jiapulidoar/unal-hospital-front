@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import 'bulma/css/bulma.css'
 
 export default class History extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
   render(){
     return(
       <div class="section">

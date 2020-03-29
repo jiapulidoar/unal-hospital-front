@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import 'bulma/css/bulma.css'
 
-export default class Answers extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
+export default class Answers extends Component {  
   render(){
     return(
       <div class="section">

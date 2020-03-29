@@ -6,22 +6,23 @@ import Answers from './Answers'
 import History from './History'
 
 export default class PatientDetail extends Component {
-  state = {
-    patient_id: "",
-    rank: 0,
-    risk: 0,
-    info: {},
-    contact: {},
-    location: {},
-    times: 0,
-    toggled: false,
-    tab: 1
-  }
   constructor(props) {
     super(props)
+
+    this.state = {
+      patient_id: "",
+      rank: 0,
+      risk: 0,
+      info: {},
+      contact: {},
+      location: {},
+      times: 0,
+      toggled: false,
+      tab: 1
+    }
   }
   componentDidMount() {
-    if(this.state.times == 0) {
+    if(this.state.times===0) {
       this.get(this.props.id)
     }
     this.interval = setInterval(() => {
@@ -52,10 +53,10 @@ export default class PatientDetail extends Component {
   }
 
   tab() {
-    if(this.state.tab == 1) {
+    if(this.state.tab===1) {
       let detail = (({ rank, risk, info, contact, location }) => ({ rank, risk, info, contact, location }))(this.state)
       return <Detail patient = {detail}/>
-    }else if(this.state.tab == 2) {
+    }else if(this.state.tab===2) {
       return <Answers questions = {this.state.questions}/>
     }
     return <History />
@@ -63,8 +64,7 @@ export default class PatientDetail extends Component {
 
   render(){
     return(
-
-      <div class="is-clipped">
+      <div id="patient-detail" class="is-clipped">
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -81,23 +81,23 @@ export default class PatientDetail extends Component {
             <section class="modal-card-body">
               <div class="tabs is-centered">
                 <ul >
-                  <li class={`${this.state.tab == 1 ? 'is-active' : ''}`}>
-                    <a onClick={()=>this.setState({tab: 1})}>
+                  <li class={`${this.state.tab===1 ? 'is-active' : ''}`}>
+                    <div onClick={()=>this.setState({tab: 1})}>
                       <span class="icon is-small"><i class="fa fa-user" aria-hidden="true"></i></span>
                       <span>Descripcion</span>
-                    </a>
+                    </div>
                   </li>
-                  <li class={`${this.state.tab == 2 ? 'is-active' : ''}`}>
-                  <a onClick={()=>this.setState({tab: 2})}>
+                  <li class={`${this.state.tab===2 ? 'is-active' : ''}`}>
+                  <div onClick={()=>this.setState({tab: 2})}>
                       <span class="icon is-small"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
                       <span>Preguntas</span>
-                    </a>
+                    </div>
                   </li>
-                  <li class={`${this.state.tab == 3 ? 'is-active' : ''}`}>
-                  <a onClick={()=>this.setState({tab: 3})}>
+                  <li class={`${this.state.tab===3 ? 'is-active' : ''}`}>
+                  <div onClick={()=>this.setState({tab: 3})}>
                       <span class="icon is-small"><i class="fa fa-file-text" aria-hidden="true"></i></span>
                       <span>Historia</span>
-                    </a>
+                    </div>
                   </li>
                 </ul>
               </div>

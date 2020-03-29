@@ -1,6 +1,5 @@
 import HospotalLogo from "../../images/hospital.png";
-import React, { Component , PropTypes } from "react";
-import { Link } from 'react-router-dom'
+import React, { Component } from "react";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions.js'

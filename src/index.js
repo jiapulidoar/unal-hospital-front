@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";

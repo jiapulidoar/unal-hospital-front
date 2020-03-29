@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import 'bulma/css/bulma.css'
 import mapimg from '../Table/mapcovid.png'
 export default class Detail extends Component {
-  constructor(props) {
-    super(props)
-
-  }
-
-
   riskColor(){
     let risk = this.props.patient.risk
     return (risk < 4) ?'success' : (risk >= 4 && risk < 7) ? 'warning': 'danger'

@@ -4,3 +4,5 @@
   width: 100%;
   align-items: center;
 }
+
+#patient-detail .tabs li > div { cursor: pointer; }
