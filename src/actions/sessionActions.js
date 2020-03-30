@@ -20,6 +20,8 @@ export function loginUser(credentials) {
     //CONECT WITH API | send request with credentials | handle errors
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
+
+      console.log(response)
       let user = {
         name: response.name /*,
         lastname: response.lastname,
@@ -31,7 +33,7 @@ export function loginUser(credentials) {
       sessionStorage.setItem('client', response.client);
       sessionStorage.setItem('user',JSON.stringify(user));
 
-      if (response.token==undefined){
+      if (response.token===undefined){
         dispatch(logoutUser());
         /*swal(
           'usuario o contraseña invalidos',

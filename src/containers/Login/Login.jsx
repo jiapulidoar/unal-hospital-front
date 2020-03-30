@@ -25,8 +25,13 @@ class Login extends Component  {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.actions.loginUser(this.state);
-    this.props.history.push("/dashboard");
+    this.props.actions.loginUser(this.state).then( r=>{
+      console.log("login")
+      console.log(this.props)
+      this.props.history.replace("/dashboard");
+      }
+    ) ;
+
     //window.location.reload();
   }
 
@@ -86,8 +91,8 @@ class Login extends Component  {
                       </div>
                     </div>
                     <button
-                      className="button is-block is-info is-large is-fullwidth"
                       onClick={this.handleSubmit}
+                      className="button is-block is-info is-large is-fullwidth"
                     >
                       Ingresar{" "}
                       <i className="fa fa-sign-in" aria-hidden="true"></i>

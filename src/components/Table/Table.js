@@ -5,7 +5,6 @@ import mapimg from './mapcovid.png'
 
 class DataTable extends Component {
   state = {
-    data: [],
     statistics:{},
     times: 0
   }
@@ -22,15 +21,12 @@ class DataTable extends Component {
 
   get(){
     //GET HTTP method
-
-    
     this.setState( (prevState) => ({
       times: prevState.times + 1
     }));
   }
 
   castDate(timestamp){
-
     var date= new Date(timestamp)
     return date.toString()
   }
@@ -38,7 +34,7 @@ class DataTable extends Component {
  render() {
    const { ranking, statistics } = this.props
    console.log(ranking);
-   
+
     //render HTML table
     return (
     <div>
@@ -58,7 +54,7 @@ class DataTable extends Component {
                   </thead>
                   <tbody>
                    {ranking.map(patient =>
-                     <tr>
+                     <tr key={patient.idPatient}>
                       <td>{patient.idPatient}</td>
                       <td>{patient.risk}</td>
                     </tr>
@@ -77,21 +73,21 @@ class DataTable extends Component {
                 textClassName="white-text"
                 title="Riesgo alto"
               >
-                <h4>{statistics.high}</h4>
+                <h4>{statistics.totals.highRisk.numPatients}</h4>
               </Card>
               <Card
                 className="orange"
                 textClassName="white-text"
                 title="Riesgo Medio"
               >
-                <h4>{statistics.mid}</h4>
+                <h4>{statistics.totals.midRisk.numPatients}</h4>
               </Card>
               <Card
                 className="green"
                 textClassName="white-text"
                 title="Riesgo Bajo"
               >
-                <h4>{statistics.low}</h4>
+                <h4>{statistics.totals.lowRisk.numPatients}</h4>
               </Card>
              </Card>
             </Col>
@@ -103,7 +99,7 @@ class DataTable extends Component {
             </Col>
         </Col>
       </Row>
-      <div style={{'margin-bottom':'200px'}}>
+      <div style={{'marginBottom':'200px'}}>
       </div>
     </div>
     )
@@ -112,7 +108,7 @@ class DataTable extends Component {
 
 DataTable.propTypes = {
   ranking: PropTypes.array,
-  statistics: PropTypes.array
+  statistics: PropTypes.object
 }
 
 export default DataTable
