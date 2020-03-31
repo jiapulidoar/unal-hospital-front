@@ -34,40 +34,80 @@ export default class SideBar extends Component {
                 <li>
                   {/*eslint-disable-next-line*/}
                   <a className="Dot">
-                    <div className="Ellipse-3" />
+                    <div className="Ellipse Ellipse-3" />
                     Crítico (20)
                   </a>
                 </li>
                 <li>
                   {/*eslint-disable-next-line*/}
                   <a className="Dot">
-                    <div className="Ellipse-4" />
+                    <div className="Ellipse Ellipse-4" />
                     Medio (489)
                   </a>
                 </li>
                 <li>
                   {/*eslint-disable-next-line*/}
                   <a className="Dot">
-                    <div className="Ellipse-5" />
+                    <div className="Ellipse Ellipse-5" />
                     Bajo (1895)
                   </a>
                 </li>
               </ul>
             </li>
           </ul>
-          <p className="menu-label">Transactions</p>
+          <p className="menu-label">RESPUESTAS POR SEXO</p>
           <ul className="menu-list">
             <li>
-              {/*eslint-disable-next-line*/}
-              <a>Payments</a>
+              <ul className="Payments-Transfers-B">
+                <li>
+                  {/*eslint-disable-next-line*/}
+                  <a className="Dot">
+                    <div className="Ellipse" />
+                    Femenino (20)
+                  </a>
+                </li>
+                <li>
+                  {/*eslint-disable-next-line*/}
+                  <a className="Dot">
+                    <div className="Ellipse" />
+                    Masculino (489)
+                  </a>
+                </li>
+              </ul>
             </li>
+          </ul>
+          <p className="menu-label">RESPUESTAS POR EDAD</p>
+          <ul className="menu-list">
             <li>
-              {/*eslint-disable-next-line*/}
-              <a>Transfers</a>
-            </li>
-            <li>
-              {/*eslint-disable-next-line*/}
-              <a>Balance</a>
+              <ul className="Payments-Transfers-B">
+                <li>
+                  {/*eslint-disable-next-line*/}
+                  <a className="Dot">
+                    <div className="Ellipse" />0 a 19 años (20)
+                  </a>
+                </li>
+                <li>
+                  {/*eslint-disable-next-line*/}
+                  <a className="Dot">
+                    <div className="Ellipse" />
+                    20 a 40 años (489)
+                  </a>
+                </li>
+                <li>
+                  {/*eslint-disable-next-line*/}
+                  <a className="Dot">
+                    <div className="Ellipse" />
+                    40 a 60 años (1895)
+                  </a>
+                </li>
+                <li>
+                  {/*eslint-disable-next-line*/}
+                  <a className="Dot">
+                    <div className="Ellipse" />
+                    60 en adelante (1895)
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </aside>

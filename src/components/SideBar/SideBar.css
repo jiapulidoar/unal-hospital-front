@@ -24,7 +24,7 @@
 }
 .Dashboard-Customers {
   width: 282px;
-  height: 144px;
+  height: auto;
   font-family: NunitoSans;
   font-size: 16px;
   font-weight: normal;
@@ -40,7 +40,7 @@
 }
 .Payments-Transfers-B {
   width: 282px;
-  height: 144px;
+  height: auto;
   font-family: NunitoSans;
   font-size: 16px;
   font-weight: normal;
@@ -51,26 +51,21 @@
   color: #4a4a4a;
   align-items: center;
 }
-.Ellipse-3 {
+.Ellipse {
   width: 10px;
   height: 10px;
-  background-color: #ff3860 !important;
   border-radius: 5px;
   margin-right: 10px;
+  background-color: #bdbdbd !important;
+}
+.Ellipse-3 {
+  background-color: #ff3860 !important;
 }
 .Ellipse-4 {
-  width: 10px;
-  height: 10px;
-  background-color: #ffdd57;
-  border-radius: 5px;
-  margin-right: 10px;
+  background-color: #ffdd57 !important;
 }
 .Ellipse-5 {
-  width: 10px;
-  height: 10px;
-  background-color: #23d160;
-  border-radius: 5px;
-  margin-right: 10px;
+  background-color: #23d160 !important;
 }
 .Dot {
   display: flex !important;
