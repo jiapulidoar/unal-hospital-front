@@ -16,6 +16,8 @@ tags:
   description: "Authentication procedures"
 - name: "dashboard"
   description: "Information and statistics endpoint"
+- name: "statistics"
+  description: "API for data visualization"
 schemes:
 - "https"
 paths:
@@ -70,10 +72,10 @@ paths:
           description: "successful fetch"
           schema:
             $ref: "#/definitions/RankingResponse"
-  /dashboard/semaphore:
+  /statistics/semaphore:
     get:
       tags:
-      - "dashboard"
+      - "statistics"
       summary: "Get semaphore counts (high, medium, low risk counts)"
       operationId: "dashboardSemaphore"
       produces:
@@ -83,20 +85,100 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/SemaphoreCount"
-   
-securityDefinitions:
-  petstore_auth:
-    type: "oauth2"
-    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
-    flow: "implicit"
-    scopes:
-      write:pets: "modify pets in your account"
-      read:pets: "read your pets"
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
+
 definitions:
+  Login:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      password:
+        type: "string"
+  Doctor:
+    type: "object"
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      gender:
+        type: string
+      patientData:
+        $ref: '#/definitions/PatientData'
+  PatientData:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      rank:
+        type: integer
+      risk:
+        type: number
+      info:
+        type: object
+        properties:
+          name:
+            type: string
+          lastName:
+            type: string
+          age:
+            type: integer
+          gender:
+            type: string
+      contact:
+        type: object
+        properties:
+          email:
+            type: "string"
+          cellphone:
+            type: "integer"
+      location:
+        $ref: '#/definitions/LatLng'
+      history:
+        type: "array"
+        items:
+          $ref: '#/definitions/Form'
+  Form:
+    type: object
+    properties:
+      date:
+        type: string
+      form:
+        type: array
+        items:
+          type: object
+          properties:
+            question:
+              $ref: '#/definitions/Question'
+            answer:
+              $ref: '#/definitions/Answer'
+  Question:
+    type: "object"
+    properties:
+      id:
+        type: string
+      options:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              $ref: '#/definitions/Label'
+            return:
+              type: string
+      label:
+        $ref: '#/definitions/Label'
+  Answer:
+    type: "object"
+    properties:
+      id:
+        type: string
+      questionId:
+        type: string
+      label:
+        $ref: '#/definitions/Label'
+  
   RankingRequest:
     type: "object"
     properties:
@@ -129,7 +211,7 @@ definitions:
   RankingResponse:
     type: "array"
     items:
-      $ref: "#/definitions/Patient"
+      $ref: "#/definitions/PatientData"
   SemaphoreCount:
     type: "object"
     properties:
@@ -139,24 +221,17 @@ definitions:
         type: "integer"
       low:
         type: "integer"
-  Patient:
+  Label:
     type: "object"
     properties:
-      id:
-        type: "integer"
-        format: "int64"
-      email:
-        type: "string"
-      cellphone:
-        type: "integer"
-  Login:
-    type: "object"
+      type:
+        type: string
+      content:
+        type: string
+  LatLng:
+    type: object
     properties:
-      email:
-        type: "string"
-      password:
-        type: "string"
-      
-externalDocs:
-  description: "Find out more about Swagger"
-  url: "http://swagger.io"
+      latitude:
+        type: number
+      longitude:
+        type: number
