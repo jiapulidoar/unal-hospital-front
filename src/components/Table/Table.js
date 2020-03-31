@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types'
-import {Row, Col, Card, Table} from 'react-materialize';
 import mapimg from './mapcovid.png'
 
 class DataTable extends Component {
@@ -38,68 +37,66 @@ class DataTable extends Component {
     //render HTML table
     return (
     <div>
-      <Row>
-        <Col l={2} m={1} className='grid-example'></Col>
-        <Col l={8} m={10} s={12} className='grid-example'>
-          <Row>
-            <Col l={8} m={12} s={12}>
-              <Card className=''>
-                <h5><b>Ranking Pacientes</b></h5>
-                <Table>
-                  <thead>
-                    <tr>
-                      <th data-field="date">ID Paciente</th>
-                      <th data-field="random">Riesgo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                   {ranking.map(patient =>
-                     <tr key={patient.idPatient}>
-                      <td>{patient.idPatient}</td>
-                      <td>{patient.risk}</td>
-                    </tr>
-                   )}
-                  </tbody>
-                </Table>
-              </Card>
-            </Col>
-            <Col l={4} m={12} s={12}>
-            <Card
-               className=""
-               textClassName="white-text"
-            >
-              <Card
-                className="red"
-                textClassName="white-text"
-                title="Riesgo alto"
-              >
-                <h4>{statistics.totals.highRisk.numPatients}</h4>
-              </Card>
-              <Card
-                className="orange"
-                textClassName="white-text"
-                title="Riesgo Medio"
-              >
-                <h4>{statistics.totals.midRisk.numPatients}</h4>
-              </Card>
-              <Card
-                className="green"
-                textClassName="white-text"
-                title="Riesgo Bajo"
-              >
-                <h4>{statistics.totals.lowRisk.numPatients}</h4>
-              </Card>
-             </Card>
-            </Col>
-          </Row>
-            <Col l={12} m={12} s={12}>
-              <Card>
+      <div class="columns">
+        <div class="column is-offset-1 is-6">
+            <h3><b>Ranking Pacientes</b></h3>
+            <table  class = "table">
+              <thead>
+                <tr>
+                  <th data-field="date">
+                    <abbr title = "Position">ID Paciente</abbr>
+                  </th>
+                  <th data-field="random">Riesgo</th>
+                </tr>
+              </thead>
+              <tbody>
+               {ranking.map(patient =>
+                 <tr key={patient.idPatient}>
+                  <td>{patient.idPatient}</td>
+                  <td>{patient.risk}</td>
+                </tr>
+               )}
+              </tbody>
+            </table>
+        </div>
+        <div class="column is-4">
+          <h3><b>Estadisticas</b></h3>
+          <div class='Card has-background-danger' >
+            <div class="card-content">
+              <p class="title">
+              </p>
+              <p class="subtitle">Riesgo Alto
+              </p>
+              <h4>{statistics.totals.highRisk.numPatients}</h4>
+            </div>
+          </div>
+          <div class='Card has-background-warning' >
+            <div class="card-content">
+              <p class="title">
+              </p>
+              <p class="subtitle">Riesgo Medio
+              </p>
+              <h4>{statistics.totals.midRisk.numPatients}</h4>
+            </div>
+          </div>
+          <div class='Card has-background-success' >
+            <div class="card-content">
+              <p class="title">
+              </p>
+              <p class="subtitle">Riesgo bajo
+              </p>
+              <h4>{statistics.totals.lowRisk.numPatients}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-offset-1 is-10">
+          <div class='container is-fluid'>
                 <img src={mapimg} alt="map" style={{'width':'100%'}}/>
-              </Card>
-            </Col>
-        </Col>
-      </Row>
-      <div style={{'marginBottom':'200px'}}>
+          </div>
+        </div>
       </div>
     </div>
     )

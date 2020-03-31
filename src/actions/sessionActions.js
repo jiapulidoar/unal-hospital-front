@@ -2,8 +2,8 @@
 import * as types from "./actionTypes";
 import sessionApi from '../Auth/sessionApi';
 
-var usertest = { username: "@david" };
-var tokentest = "token00";
+// var usertest = { username: "@david" };
+// var tokentest = "token00";
 
 export function loginSuccess() {
   console.log('logeado')

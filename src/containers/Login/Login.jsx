@@ -1,6 +1,5 @@
 import HospotalLogo from "../../images/hospital.png";
-import React, { Component , PropTypes } from "react";
-import { Link } from 'react-router-dom'
+import React, { Component } from "react";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions.js'
@@ -53,7 +52,7 @@ class Login extends Component  {
         <link rel="stylesheet" type="text/css" href="./login.css" />
         <section className="hero is-success is-fullheight">
           <div className="hero-body">
-            <div className="container has-text-centered">
+            <div className="container">
               <div className="column is-4 is-offset-4">
                 <h3 className="title has-text-black">Inicio de Sesión</h3>
                 <hr className="login-hr" />
