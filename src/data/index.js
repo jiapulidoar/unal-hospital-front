@@ -29,11 +29,23 @@ export const dataRank = [
       },
 ]
 
+
 export const dataStatistics = {
-    high:134,
-    mid:567,
-    low:1234
+    totals: {
+      highRisk:{
+        numPatients:134,
+        code: "red"
+      },
+      midRisk:{
+        numPatients:134,
+        code: "yellow"
+      },
+      lowRisk:{
+        numPatients:134,
+        code: "green"
+      }
   }
+}
 
 
 export const patientData = {
@@ -47,7 +59,7 @@ export const patientData = {
     sex: "Male"
   },
   contact: { // I guess one of these should be mandatory when registering
-    email: "test@test.com", 
+    email: "test@test.com",
     phone: "3333333333"
   },
   location:{
@@ -55,7 +67,7 @@ export const patientData = {
     address: "Cll. 20 #4-20G",
     city: "Bogota",
     district: "Antonio Nariño",
-    neighborhood: "Restrepo" 
+    neighborhood: "Restrepo"
   },
   questions: [
     {question: "tiene coronavirus?", answer:"Vielleicht"},
