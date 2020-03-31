@@ -1,0 +1,78 @@
+.menu-list :hover {
+  background-color: darkgray;
+}
+.menu-list li ul {
+  border-left: 0px;
+}
+.GENERAL {
+  width: 80.1px;
+  height: 36.5px;
+  font-family: NunitoSans;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 3;
+  letter-spacing: 1.19px;
+  color: #7a7a7a;
+}
+.Rectangle-6 {
+  width: 272px;
+  height: 36.5px;
+  border-radius: 2px;
+  background-color: var(--primary);
+}
+.Dashboard-Customers {
+  width: 282px;
+  height: 144px;
+  font-family: NunitoSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  color: #4a4a4a;
+}
+
+.Dashboard-Customers .text-style-1 {
+  color: #ffffff;
+}
+.Payments-Transfers-B {
+  width: 282px;
+  height: 144px;
+  font-family: NunitoSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  color: #4a4a4a;
+  align-items: center;
+}
+.Ellipse-3 {
+  width: 10px;
+  height: 10px;
+  background-color: #ff3860 !important;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.Ellipse-4 {
+  width: 10px;
+  height: 10px;
+  background-color: #ffdd57;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.Ellipse-5 {
+  width: 10px;
+  height: 10px;
+  background-color: #23d160;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.Dot {
+  display: flex !important;
+  align-items: center;
+}

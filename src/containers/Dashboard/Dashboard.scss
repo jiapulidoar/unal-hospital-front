@@ -1,3 +1,16 @@
 #dashboard-page h1 {
-    color: white;
+  color: white;
+}
+.rootRow {
+  display: flex;
+  flex-direction: row;
+}
+.colSideBar {
+  flex: 2;
+  background-color: darkgray;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.colDashboard {
+  flex: 6;
 }

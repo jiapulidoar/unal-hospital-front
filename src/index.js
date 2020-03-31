@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
 
 import Login from "./containers/Login/Login.jsx";
 import Dashboard from "./containers/Dashboard/Dashboard";
-import CityMap from './components/CityMap/CityMap';
-
+import CityMap from "./components/CityMap/CityMap";
 
 const store = configureStore();
 
@@ -32,15 +31,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-    <Fragment>
-      <Switch>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/map" component={CityMap} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
-      </Switch>
-    </Fragment>
+      <Fragment>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/map" component={CityMap} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        </Switch>
+      </Fragment>
     </BrowserRouter>
-
-    </Provider>,
+  </Provider>,
   document.getElementById("root")
 );
