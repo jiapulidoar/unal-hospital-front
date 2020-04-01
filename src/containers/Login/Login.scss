@@ -1,0 +1,49 @@
+@import 'styles/colors.scss';
+
+#login-page .header,
+#login-page .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#login-page .header {
+  height: 40vh;
+  background: $primary;
+  color: white;
+}
+
+#login-page .content .wrapper {
+  width: 20vw;
+  margin-top: 10vh;
+  text-align: center;
+}
+
+#login-page .content .wrapper p {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+#login-page .content .wrapper input {
+  // font-family: NunitoSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  border: solid 1px #dbdbdb;
+  background-color: #ffffff;
+}
+
+#login-page .content .wrapper input::placeholder {
+  color: #808080;
+}
+
+#login-page .content .wrapper button {
+  background: $primary;
+  color: white;
+  border: 0px;  border-radius: 2px;
+  margin-top: 20px;
+}

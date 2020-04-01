@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions.js'
 
+import './Login.scss'
+
 class Login extends Component  {
   constructor(props) {
     super(props);
@@ -36,73 +38,30 @@ class Login extends Component  {
 
   render() {
     return (
-      <div>
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Questrial&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"
-        />
-        <link rel="stylesheet" type="text/css" href="./login.css" />
-        <section className="hero is-success is-fullheight">
-          <div className="hero-body">
-            <div className="container">
-              <div className="column is-4 is-offset-4">
-                <h3 className="title has-text-black">Inicio de Sesión</h3>
-                <hr className="login-hr" />
-                <p className="subtitle has-text-black">
-                  Bienvenido al Dashboard.
-                </p>
-                <div className="box">
-                  <figure className="avatar">
-                    <img src={HospotalLogo} alt="Hospital" />
-                  </figure>
-                  <form>
-                    <div className="field">
-                      <div className="control">
-                        <input
-                          className="input is-large"
-                          placeholder="Correo"
-                            id="email"
-                            type='email'
-                            onChange={this.handleChange}
-                            value={this.state.email}
-                            required/>
-                      </div>
-                    </div>
+      <div id="login-page">
+        <div className="header">
+          <h2>DASHBOARD</h2>
+        </div>
+        <div className="content">
+          <div className="wrapper">
+          <p>Escribe tus credenciales de acceso para entrar al dashboard</p>
+            <form>
+              <input 
+                id="email"
+                onChange={this.handleChange}
+                value={this.state.email}
+                className="input" type="text" placeholder="Correo" />
 
-                    <div className="field">
-                      <div className="control">
-                        <input
-                          className="input is-large"
-                          type="password"
-                          id="password"
-                          placeholder="Contraseña"
-                          onChange={this.handleChange}
-                          value={this.state.password}
-                        />
-                      </div>
-                    </div>
-                    <button
-                      onClick={this.handleSubmit}
-                      className="button is-block is-info is-large is-fullwidth"
-                    >
-                      Ingresar{" "}
-                      <i className="fa fa-sign-in" aria-hidden="true"></i>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
+              <input 
+                id="password"
+                onChange={this.handleChange}
+                value={this.state.password}
+                className="input" type="password" placeholder="Contraseña" />
+
+              <button onClick={this.handleSubmit} className="button is-fullwidth">Iniciar sesión</button>
+            </form>
           </div>
-        </section>
-        <script async type="text/javascript" src="./bulma.js"></script>
+        </div>
       </div>
     );
   }
