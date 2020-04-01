@@ -37,10 +37,10 @@ class DataTable extends Component {
     //render HTML table
     return (
     <div>
-      <div class="columns">
-        <div class="column is-offset-1 is-6">
+      <div className="columns">
+        <div className="column is-offset-1 is-10">
             <h3><b>Ranking Pacientes</b></h3>
-            <table  class = "table">
+            <table  className = "table">
               <thead>
                 <tr>
                   <th data-field="date">
@@ -58,44 +58,6 @@ class DataTable extends Component {
                )}
               </tbody>
             </table>
-        </div>
-        <div class="column is-4">
-          <h3><b>Estadisticas</b></h3>
-          <div class='Card has-background-danger' >
-            <div class="card-content">
-              <p class="title">
-              </p>
-              <p class="subtitle">Riesgo Alto
-              </p>
-              <h4>{statistics.totals.highRisk.numPatients}</h4>
-            </div>
-          </div>
-          <div class='Card has-background-warning' >
-            <div class="card-content">
-              <p class="title">
-              </p>
-              <p class="subtitle">Riesgo Medio
-              </p>
-              <h4>{statistics.totals.midRisk.numPatients}</h4>
-            </div>
-          </div>
-          <div class='Card has-background-success' >
-            <div class="card-content">
-              <p class="title">
-              </p>
-              <p class="subtitle">Riesgo bajo
-              </p>
-              <h4>{statistics.totals.lowRisk.numPatients}</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column is-offset-1 is-10">
-          <div class='container is-fluid'>
-                <img src={mapimg} alt="map" style={{'width':'100%'}}/>
-          </div>
         </div>
       </div>
     </div>

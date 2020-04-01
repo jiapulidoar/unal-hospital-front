@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import "./SideBar.css";
 
 export default class SideBar extends Component {
+
+  handleSubmit = event => {
+    event.preventDefault();
+    sessionStorage.removeItem("jwt");
+    window.location.reload();
+    //if (this.props.history) this.props.history.push("/");
+  };
+
   render() {
     return (
       <>
@@ -110,6 +118,10 @@ export default class SideBar extends Component {
               </ul>
             </li>
           </ul>
+
+          <button className="button is-primary" onClick={this.handleSubmit}>
+            Logout
+          </button>
         </aside>
       </>
     );

@@ -12,38 +12,42 @@ export default class Dashboard extends Component {
 
     this.state = {
       ranking: null,
-      statistics: null
+      statistics: null,
+      toggled: false
     };
   }
 
   componentDidMount() {
     // fetch(...).then(...)
+    console.log(this.state)
     this.setState({
       ranking: dataRank,
       statistics: dataStatistics
     });
   }
 
-  handleSubmit = event => {
+  handleToggle = event => {
     event.preventDefault();
-    sessionStorage.removeItem("jwt");
-    window.location.reload();
-    //if (this.props.history) this.props.history.push("/");
+    this.setState((prev, props) => {
+      const newtogg = !prev.toggled;
+      return {
+        ranking: prev.ranking,
+        statistics: prev.statistics,
+        toggled: newtogg };
+    });
   };
+
   render() {
-    const { ranking, statistics } = this.state;
+    const { ranking, statistics,toggled } = this.state;
     console.log(ranking && statistics ? true : false);
 
     return (
-      <row className="rootRow">
+      <div className="rootRow">
         <div className="colSideBar">
           <SideBar />
         </div>
         <div className="colDashboard">
           <div id="dashboard-page">
-            <button className="button is-primary" onClick={this.handleSubmit}>
-              Logout
-            </button>
             <h1>Dashboard</h1>
             {ranking && statistics ? (
               <DataTable ranking={ranking} statistics={statistics} />
@@ -51,11 +55,16 @@ export default class Dashboard extends Component {
               ""
             )}
             <div className="container">
-              <PatientDetail id="p1234" />
+            {this.state.toggled ?   <PatientDetail id="p1234" toggled={true}/> : null}
+
             </div>
           </div>
         </div>
-      </row>
+
+        <button className="button is-primary" onClick={this.handleToggle}>
+          PatientDetail
+        </button>
+      </div>
     );
   }
 }
