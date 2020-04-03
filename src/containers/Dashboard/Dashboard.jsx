@@ -119,7 +119,7 @@ export default class Dashboard extends Component {
                 <button className="reset button">
                   Reestablecer filtros
                 </button>
-                <button className="filter button is-primary">
+                <button className="filter button is-info is-outlined">
                   Filtrar
                 </button>
               </div>
