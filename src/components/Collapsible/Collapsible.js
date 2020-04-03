@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import "bulma/css/bulma.css";
 import './Collapsible.scss';
-import { isBreakOrContinueStatement } from "typescript";
 
 
 class Collapsible extends Component {
@@ -21,8 +20,8 @@ class Collapsible extends Component {
 
   render(){
     return(
-      <div class="card">
-        <header class="card-header">
+      <div className="card">
+        <header className="card-header">
           <div className="custom-card-title">
             <p className="card-title">
               {this.props.title}
@@ -31,15 +30,15 @@ class Collapsible extends Component {
               {this.props.subtitle}
             </p>
           </div>
-          <a class="card-header-icon" aria-label="more options" onClick={()=>this.toggle()}>
+          <div className="card-header-icon" aria-label="more options" onClick={()=>this.toggle()}>
             {this.props.arrow_text}
-            <span class="icon">
-              <i class={`fa fa-angle-${this.state.isExpanded ? 'down':'right'}`} aria-hidden="true"></i>
+            <span className="icon">
+              <i className={`fa fa-angle-${this.state.isExpanded ? 'down':'right'}`} aria-hidden="true"></i>
             </span>
-          </a>
+          </div>
         </header>
-        <div class={`card-content ${this.state.isExpanded ? 'is-expanded':''}`}>
-          <div class="content">
+        <div className={`card-content ${this.state.isExpanded ? 'is-expanded':''}`}>
+          <div className="content">
             {this.props.children}
           </div>
         </div>

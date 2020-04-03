@@ -58,11 +58,14 @@
 .sidebar .bottom ul.menu-list li {
   margin-top: 1vh;
   margin-bottom: 1vh;
-  color: red!important;
 }
 
 .sidebar .bottom ul.menu-list li a:hover {
   background-color: white;
+}
+
+.sidebar .bottom ul.menu-list li a.active {
+  background-color: #dddddd;
 }
 
 .menu-list li ul {

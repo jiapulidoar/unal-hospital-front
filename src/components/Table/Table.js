@@ -37,7 +37,7 @@ class DataTable extends Component {
 /**/
 handleToggle = (event,patient) => {
   event.preventDefault();
-  this.setState((prev, props) => {
+  this.setState((prev) => {
     const newtogg = !prev.toggled;
     return {
       ranking: prev.ranking,
@@ -50,7 +50,6 @@ handleToggle = (event,patient) => {
 
  render() {
    const { ranking } = this.props
-   console.log(ranking);
 
     //render HTML table
     return (
@@ -77,7 +76,7 @@ handleToggle = (event,patient) => {
                {ranking.map(patient =>
                   <tr key={patient.idPatient}>
                   <td>{patient.idPatient}</td>
-                  <td class="risk">
+                  <td className="risk">
                     <Ellipse color={patient.risk > 0.7 ? "red" : (patient.risk > 0.5 ? "yellow" : "green")} />
                     </td>
                   <td>{patient.date.split(",")[0]}</td>

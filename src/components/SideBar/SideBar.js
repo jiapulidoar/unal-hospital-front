@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { number, shape } from 'prop-types'
+import { number, func, shape } from 'prop-types'
 import "./SideBar.scss";
 import Ellipse from "components/Ellipse/Ellipse";
 
 class SideBar extends Component {
-
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      selected: null,
+    }
+  }
+  
   handleSubmit = event => {
     event.preventDefault();
     sessionStorage.removeItem("jwt");
@@ -13,8 +20,14 @@ class SideBar extends Component {
     //if (this.props.history) this.props.history.push("/");
   };
 
+  handleOnSelect = value => {
+    const selected = this.state.selected === value ? "" : value
+    this.setState({ selected }, () => this.props.onSelect(selected))
+  }
+
   render() {
-    const { semaphore } = this.props
+    const { selected } = this.state
+    const { semaphore } = this.props    
 
     return (
       <>
@@ -46,21 +59,21 @@ class SideBar extends Component {
           <ul className="menu-list">
             <li>
               {/*eslint-disable-next-line*/}
-              <a className="Dot">
+              <a className={`Dot ${selected === "high" ? "active" : ''}`} onClick={() => this.handleOnSelect("high")}>
                 <Ellipse color="red" />
                 Crítico ({semaphore ? semaphore.high : '...'})
               </a>
             </li>
             <li>
               {/*eslint-disable-next-line*/}
-              <a className="Dot">
+              <a className={`Dot ${selected === "medium" ? "active" : ''}`} onClick={() => this.handleOnSelect("medium")}>
                 <Ellipse color="yellow" />
                 Medio ({semaphore ? semaphore.medium : '...'})
               </a>
             </li>
             <li>
               {/*eslint-disable-next-line*/}
-              <a className="Dot">
+              <a className={`Dot ${selected === "low" ? "active" : ''}`} onClick={() => this.handleOnSelect("low")}>
                 <Ellipse color="green" />
                 Bajo ({semaphore ? semaphore.low : '...'})
               </a>
@@ -78,7 +91,8 @@ SideBar.propTypes = {
     high: number,
     medium: number,
     low: number
-  })
+  }),
+  onSelect: func
 }
 
 export default SideBar

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import bulmaCalendar from 'bulma-calendar';
 import DataTable from "../../components/Table/Table";
 import SideBar from "../../components/SideBar/SideBar";
-import { dataRank, semaphore } from "../../data";
+import { dataRank, semaphore, localidades, thresholds } from "../../data";
 
 import "./Dashboard.scss";
 
@@ -11,9 +11,12 @@ export default class Dashboard extends Component {
     super(props);
 
     this.state = {
+      currentSemaphore: null,
       ranking: null,
       statistics: null
     };
+
+    this.setCurrentSemaphore = this.setCurrentSemaphore.bind(this)
   }
 
   componentDidMount() {
@@ -39,15 +42,33 @@ export default class Dashboard extends Component {
     element.addEventListener('change', e => console.log(e))
   }
 
+  setCurrentSemaphore = currentSemaphore => {
+    this.setState({ currentSemaphore }, () => {
+      let ranking = []
+      
+      if(currentSemaphore === "") ranking = dataRank
+      else {
+        for (let i in dataRank) {
+          const { high, medium } = thresholds
+          const rank = dataRank[i]
+          if ((currentSemaphore === "high" && rank.risk > high)
+              || (currentSemaphore === "medium" && rank.risk < high && rank.risk > medium)
+              || (currentSemaphore === "low" && rank.risk < medium))
+              ranking.push(rank)
+        }
+      }
+      this.setState({ ranking })
+    })
+  }
+
   render() {
-    const { ranking, semaphore } = this.state;
-    console.log(semaphore);
-    
+    const { ranking, semaphore } = this.state    
 
     return (
+
       <div className="rootRow">
         <div className="colSideBar">
-          <SideBar semaphore={semaphore} />
+          <SideBar semaphore={semaphore} onSelect={this.setCurrentSemaphore} />
         </div>
         <div className="colDashboard">
           <div id="dashboard-page">
@@ -88,11 +109,8 @@ export default class Dashboard extends Component {
                 {/* Localidad*/}
                 <div className="select">
                   <select>
-                    <option>Localidad</option>
-                    <option>Usaquén</option>
-                    <option>Suba</option>
-                    <option>Teusaquillo</option>
-                    <option>...</option>
+                    <option value="">Localidad</option>
+                    {localidades.map(({id, name}) => <option key={id} value={id}>{name}</option>)}
                   </select>
                 </div>
               </div>
