@@ -1,8 +1,15 @@
-.centeredTile{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
+/*#patient-detail .tabs li > div { cursor: pointer; }*/
+
+.bg-high {
+  background-color: #ff3860 !important;
+}
+.bg-medium {
+  background-color: #ffdd57 !important;
+}
+.bg-low {
+  background-color: #23d160 !important;
 }
 
-#patient-detail .tabs li > div { cursor: pointer; }
+.clean-ul{
+  list-style-type: none !important;
+}

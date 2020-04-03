@@ -1,70 +1,54 @@
 import React, { Component } from "react";
 import "bulma/css/bulma.css";
-import { patientData } from "../../data/index.js";
-import Detail from "./Detail";
-import Answers from "./Answers";
-import History from "./History";
+import { patient } from "../../data/index.js";
+import './PatientDetail.css'
+//import Answers from "./Answers";
+//import History from "./History";
 
 export default class PatientDetail extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      patient_id: "",
-      rank: 0,
-      risk: 0,
-      info: {},
-      contact: {},
-      location: {},
+      patient_id: this.props.id,
+      rank: "high",
+      phoneNumber: "",
+      name: "",
+      age: 55,
+      gender: "",
+      email: "",
+      password: "",
+      userType: "",
+      geoLocation: {
+        latitude: 0,
+        longitude: 0 
+      },
+      location : "",
+      date: "",
+      answers:{},
       times: 0,
       toggled: true,
-      tab: 1
     };
   }
   componentDidMount() {
-    // if(this.state.times===0) {
-    //   this.get(this.props.id)
-    // }
-    // this.interval = setInterval(() => {
-    //   this.get(this.props.id)
-    // }, 59000)
+     if(this.state.times===0) {
+       this.get(this.props.id)
+     }
+     this.interval = setInterval(() => {
+       this.get(this.props.id)
+     }, 59000)
   }
 
   get(patient_id) {
     //query from db
     // optional fields are name, lastName, email, latLng
-    const patient = patientData;
-    this.setState(prevState => ({
-      patient_id: patient_id,
-      rank: patient.rank,
-      risk: patient.risk,
-      info: patient.info,
-      contact: patient.contact,
-      location: patient.location,
-      questions: patient.questions,
-      times: prevState.times + 1,
-      toggled: true
-    }));
+    let state = patient;
+    state.times = 1;
+    this.setState(state);
   }
 
   close() {
     this.setState({ toggled: false });
-  }
-
-  tab() {
-    if (this.state.tab === 1) {
-      let detail = (({ rank, risk, info, contact, location }) => ({
-        rank,
-        risk,
-        info,
-        contact,
-        location
-      }))(this.state);
-      return <Detail patient={detail} />;
-    } else if (this.state.tab === 2) {
-      return <Answers questions={this.state.questions} />;
-    }
-    return <History />;
   }
 
   render() {
@@ -74,13 +58,11 @@ export default class PatientDetail extends Component {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
-        <link rel="stylesheet" type="text/css" href="./PatientDetail.css" />
-
         <div class={`modal ${this.state.toggled ? "is-active" : ""}`}>
           <div class="modal-background"></div>
           <div class="modal-card">
-            <header class="modal-card-head">
-              <p class="modal-card-title">Paciente </p>
+            <header class={`modal-card-head bg-${this.state.rank}`} b>
+              <p class={"modal-card-title is-capitalized"}>{this.state.name} </p>
               <button
                 class="delete"
                 aria-label="close"
@@ -90,35 +72,19 @@ export default class PatientDetail extends Component {
               ></button>
             </header>
             <section class="modal-card-body">
-              <div class="tabs is-centered">
-                <ul>
-                  <li class={`${this.state.tab === 1 ? "is-active" : ""}`}>
-                    <div onClick={() => this.setState({ tab: 1 })}>
-                      <span class="icon is-small">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                      </span>
-                      <span>Descripcion</span>
-                    </div>
-                  </li>
-                  <li class={`${this.state.tab === 2 ? "is-active" : ""}`}>
-                    <div onClick={() => this.setState({ tab: 2 })}>
-                      <span class="icon is-small">
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                      </span>
-                      <span>Preguntas</span>
-                    </div>
-                  </li>
-                  <li class={`${this.state.tab === 3 ? "is-active" : ""}`}>
-                    <div onClick={() => this.setState({ tab: 3 })}>
-                      <span class="icon is-small">
-                        <i class="fa fa-file-text" aria-hidden="true"></i>
-                      </span>
-                      <span>Historia</span>
-                    </div>
-                  </li>
-                </ul>
+              <div className="content">
+                <b>Información</b>
+                  <ul class="clean-ul">
+                    <li><strong>Sexo:</strong> {this.state.gender == "male" ? 'Masculino': 'Femenino'}</li>
+                    <li><strong>Edad:</strong> {this.state.age}</li>
+                    <li><strong>Ubicación:</strong> {this.state.location}</li>
+                  </ul>
+                <b>Contacto</b>
+                <ul class="clean-ul">
+                    <li><strong>Telefono:</strong> {this.state.phoneNumber}</li>
+                    <li><strong>Email:</strong> {this.state.email}</li>
+                  </ul>
               </div>
-              {this.tab()}
             </section>
           </div>
         </div>
