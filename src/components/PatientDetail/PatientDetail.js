@@ -17,7 +17,7 @@ export default class PatientDetail extends Component {
       contact: {},
       location: {},
       times: 0,
-      toggled: true,
+      toggled: this.props.toggled,
       tab: 1
     };
   }

@@ -1,31 +1,108 @@
 export const dataRank = [
   {
-           idPatient: "343",
-           risk: 78.5
+         idPatient: "343",
+         risk: 78.5,
+         phoneNumber: 3144366789,
+         name: "Jhon Doe",
+         age: 55,
+         gender: "male",
+         email: "example@example.com",
+         userType: "doctor",
+         geoLocation: {
+           "latitude": 38.926639,
+           "longitude": -77.033811
+         },
+         date: "3/30/2020, 12:47:02 PM"
       },
       {
           idPatient: "d@mail",
-          risk: 69
+          risk: 69,
+          phoneNumber: 3144366789,
+          name: "Jhon Doe",
+          age: 55,
+          gender: "male",
+          email: "example@example.com",
+          userType: "doctor",
+          geoLocation: {
+            "latitude": 38.926639,
+            "longitude": -77.033811
+          },
+          date: "3/30/2020, 12:47:02 PM"
       },
-  {
+      {
           idPatient: "3",
-          risk: 55.5
+          risk: 55.5,
+          phoneNumber: 3144366789,
+          name: "Marie Curie",
+          age: 55,
+          gender: "female",
+          email: "example@example.com",
+          userType: "doctor",
+          geoLocation: {
+            "latitude": 38.926639,
+            "longitude": -77.033811
+          },
+          date: "3/30/2020, 12:47:02 PM"
       },
       {
           idPatient: "2",
-          risk: 23.5
+          risk: 23.5,
+          phoneNumber: 3144366789,
+          name: "Jhon Doe",
+          age: 55,
+          gender: "male",
+          email: "example@example.com",
+          userType: "doctor",
+          geoLocation: {
+            "latitude": 38.926639,
+            "longitude": -77.033811
+          },
+          date: "3/30/2020, 12:47:02 PM"
       },
       {
           idPatient: "1",
-          risk: 22.5
+          risk: 22.5,
+          phoneNumber: 3144366789,
+          name: "Ada Lovelace",
+          age: 55,
+          gender: "female",
+          email: "example@example.com",
+          userType: "doctor",
+          geoLocation: {
+            "latitude": 38.926639,
+            "longitude": -77.033811
+          },
+          date: "3/30/2020, 12:47:02 PM"
       },
       {
           idPatient: "456",
-          risk: 13.5
+          risk: 13.5,
+          phoneNumber: 3144366789,
+          name: "Jhon Doe",
+          age: 55,
+          gender: "male",
+          email: "example@example.com",
+          userType: "doctor",
+          geoLocation: {
+            "latitude": 38.926639,
+            "longitude": -77.033811
+          },
+          date: "3/30/2020, 12:47:02 PM"
       },
       {
           idPatient: "n@mail",
-          risk: 5
+          risk: 5,
+          phoneNumber: 3144366789,
+          name: "Jhon Doe",
+          age: 55,
+          gender: "male",
+          email: "example@example.com",
+          userType: "doctor",
+          geoLocation: {
+            "latitude": 38.926639,
+            "longitude": -77.033811
+          },
+          date: "3/30/2020, 12:47:02 PM"
       },
 ]
 

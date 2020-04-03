@@ -2,7 +2,7 @@ import HospotalLogo from "../../images/hospital.png";
 import React, { Component } from "react";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as sessionActions from '../../actions/sessionActions.js'
+import * as sessionActions from '../../actions/sessionActions.js';
 
 import './Login.scss'
 
@@ -31,8 +31,7 @@ class Login extends Component  {
       console.log(this.props)
       this.props.history.replace("/dashboard");
       }
-    ) ;
-
+    );
     //window.location.reload();
   }
 
@@ -46,13 +45,13 @@ class Login extends Component  {
           <div className="wrapper">
           <p>Escribe tus credenciales de acceso para entrar al dashboard</p>
             <form>
-              <input 
+              <input
                 id="email"
                 onChange={this.handleChange}
                 value={this.state.email}
                 className="input" type="text" placeholder="Correo" />
 
-              <input 
+              <input
                 id="password"
                 onChange={this.handleChange}
                 value={this.state.password}

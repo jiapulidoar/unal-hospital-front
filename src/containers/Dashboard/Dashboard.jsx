@@ -13,8 +13,7 @@ export default class Dashboard extends Component {
 
     this.state = {
       ranking: null,
-      statistics: null,
-      toggled: false
+      statistics: null
     };
   }
 
@@ -26,17 +25,6 @@ export default class Dashboard extends Component {
       statistics: dataStatistics
     });
   }
-
-  handleToggle = event => {
-    event.preventDefault();
-    this.setState((prev, props) => {
-      const newtogg = !prev.toggled;
-      return {
-        ranking: prev.ranking,
-        statistics: prev.statistics,
-        toggled: newtogg };
-    });
-  };
 
   render() {
     const { ranking, statistics,toggled } = this.state;
@@ -94,16 +82,11 @@ export default class Dashboard extends Component {
             ) : (
               ""
             )}
-            <div className="container">
-            {this.state.toggled ?   <PatientDetail id="p1234" toggled={true}/> : null}
 
-            </div>
           </div>
         </div>
 
-        <button className="button is-primary" onClick={this.handleToggle}>
-          PatientDetail
-        </button>
+
       </div>
     );
   }
