@@ -69,49 +69,49 @@ export default class PatientDetail extends Component {
 
   render() {
     return (
-      <div id="patient-detail" class="is-clipped">
+      <div id="patient-detail" className="is-clipped">
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
         <link rel="stylesheet" type="text/css" href="./PatientDetail.css" />
 
-        <div class={`modal ${this.state.toggled ? "is-active" : ""}`}>
-          <div class="modal-background"></div>
-          <div class="modal-card">
-            <header class="modal-card-head">
-              <p class="modal-card-title">Paciente </p>
+        <div className={`modal ${this.state.toggled ? "is-active" : ""}`}>
+          <div className="modal-background"></div>
+          <div className="modal-card">
+            <header className="modal-card-head">
+              <p className="modal-card-title">Paciente </p>
               <button
-                class="delete"
+                className="delete"
                 aria-label="close"
                 onClick={() => {
                   this.close();
                 }}
               ></button>
             </header>
-            <section class="modal-card-body">
-              <div class="tabs is-centered">
+            <section className="modal-card-body">
+              <div className="tabs is-centered">
                 <ul>
-                  <li class={`${this.state.tab === 1 ? "is-active" : ""}`}>
+                  <li className={`${this.state.tab === 1 ? "is-active" : ""}`}>
                     <div onClick={() => this.setState({ tab: 1 })}>
-                      <span class="icon is-small">
-                        <i class="fa fa-user" aria-hidden="true"></i>
+                      <span className="icon is-small">
+                        <i className="fa fa-user" aria-hidden="true"></i>
                       </span>
                       <span>Descripcion</span>
                     </div>
                   </li>
-                  <li class={`${this.state.tab === 2 ? "is-active" : ""}`}>
+                  <li className={`${this.state.tab === 2 ? "is-active" : ""}`}>
                     <div onClick={() => this.setState({ tab: 2 })}>
-                      <span class="icon is-small">
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                      <span className="icon is-small">
+                        <i className="fa fa-paper-plane" aria-hidden="true"></i>
                       </span>
                       <span>Preguntas</span>
                     </div>
                   </li>
-                  <li class={`${this.state.tab === 3 ? "is-active" : ""}`}>
+                  <li className={`${this.state.tab === 3 ? "is-active" : ""}`}>
                     <div onClick={() => this.setState({ tab: 3 })}>
-                      <span class="icon is-small">
-                        <i class="fa fa-file-text" aria-hidden="true"></i>
+                      <span className="icon is-small">
+                        <i className="fa fa-file-text" aria-hidden="true"></i>
                       </span>
                       <span>Historia</span>
                     </div>

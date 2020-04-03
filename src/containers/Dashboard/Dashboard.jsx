@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import bulmaCalendar from 'bulma-calendar';
 import DataTable from "../../components/Table/Table";
 import PatientDetail from "../../components/PatientDetail/PatientDetail";
 import SideBar from "../../components/SideBar/SideBar";
@@ -24,10 +24,34 @@ export default class Dashboard extends Component {
       ranking: dataRank,
       statistics: dataStatistics
     });
+
+    const calendars = bulmaCalendar.attach('[type="date"]', { isRange: true });
+
+    // Loop on each calendar initialized
+    calendars.forEach(calendar => {
+      // Add listener to date:selected event
+      calendar.on('date:selected', date => {
+        console.log(date);
+      });
+    });
+
+
+var element = document.querySelector('.datetimepicker-dummy-wrapper input.is-hidden');
+console.log(element);
+
+element.addEventListener('change', e => console.log(e))
+// console.log(bulmaCalendar.);
+
+// if (element) {
+// 	// bulmaCalendar instance is available as element.bulmaCalendar
+// 	element.bulmaCalendar.on('select', function(datepicker) {
+// 		console.log(datepicker.data.value());
+// 	});
+// }
   }
 
   render() {
-    const { ranking, statistics,toggled } = this.state;
+    const { ranking, statistics } = this.state;
     console.log(ranking && statistics ? true : false);
 
     return (
@@ -39,39 +63,61 @@ export default class Dashboard extends Component {
           <div id="dashboard-page">
             <div className="top">
               <div className="form">
-              <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                  <label class="label">From</label>
+
+                <p>Filtrar por:</p>
+              <div className="fields">
+                <div className="select">
+                  <select>
+                    <option>Ranking</option>
+                    <option>...</option>
+                  </select>
                 </div>
-                <div class="field-body">
-                  <div class="field">
-                    <p class="control is-expanded has-icons-left">
-                      <input class="input" type="text" placeholder="Name" />
-                      <span class="icon is-small is-left">
-                      </span>
-                    </p>
-                  </div>
-                  <div class="field">
-                    <p class="control is-expanded has-icons-left has-icons-right">
-                      <input class="input is-success" type="email" placeholder="Email" value="alex@smith.com" />
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                      </span>
-                      <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                      </span>
-                    </p>
-                  </div>
+
+                <div className="field">
+                  <p className="control has-icons-left">
+                    <input onSelect={e => console.log(e.data)} type="date"/>
+                  </p>
+                </div>
+
+                {/* Localidad*/}
+                <div className="select">
+                  <select>
+                    <option>Edad</option>
+                    <option>0-10 años</option>
+                    <option>10-20 años</option>
+                    <option>20-30 años</option>
+                    <option>30-40 años</option>
+                    <option>40-50 años</option>
+                    <option>50-60 años</option>
+                    <option>60-70 años</option>
+                    <option>70-80 años</option>
+                    <option>+80 años</option>
+                  </select>
+                </div>
+
+                {/* Localidad*/}
+                <div className="select">
+                  <select>
+                    <option>Localidad</option>
+                    <option>Usaquén</option>
+                    <option>Suba</option>
+                    <option>Teusaquillo</option>
+                    <option>...</option>
+                  </select>
                 </div>
               </div>
 
               <div className="right buttons">
-                <button className="button">
+                <button className="reset button">
                   Reestablecer filtros
                 </button>
-                <button className="button is-primary">
+                <button className="filter button is-primary">
                   Filtrar
                 </button>
+
+<button className="button is-primary" onClick={this.handleToggle}>
+  PatientDetail
+</button>
               </div>
 
               </div>

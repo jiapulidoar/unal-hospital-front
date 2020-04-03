@@ -1,7 +1,7 @@
 @import 'styles/colors.scss';
 
 #dashboard-page .top {
-  height: 25vh;
+  height: 28vh;
   display: flex;
   
   align-items: center;
@@ -9,10 +9,33 @@
 
 #dashboard-page .top .form {
   width: 100%;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+#dashboard-page .top .form p {
+  font-weight: 600;
+  margin-bottom: 1vh;
+}
+
+#dashboard-page .top .form .fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dashboard-page .top .form .fields .field {
+  margin: 0;
 }
 
 #dashboard-page .top .right.buttons {
+  margin-top: 1vh;
   float: right;
+}
+
+#dashboard-page .top .right.buttons .reset {
+  background: $lightGray;
+  border: 1px solid $lightGray;
+  color: $gray;
 }
 
 .rootRow {

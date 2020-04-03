@@ -1,14 +1,23 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
-import "./index.css";
 
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTable, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+
 import Login from "./containers/Login/Login.jsx";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import CityMap from "./components/CityMap/CityMap";
+
+
+import "bulma-calendar/dist/css/bulma-calendar.min.css"
+
+import "./index.css";
+
+library.add(faTable, faUserCircle)
 
 const store = configureStore();
 
