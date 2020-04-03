@@ -13,32 +13,32 @@ class DataTable extends Component {
    console.log(ranking);
     return (
     <div>
-      <div class="columns">
-        <div class="column is-4">
+      <div className="columns">
+        <div className="column is-4">
           <h3><b>Estadisticas</b></h3>
-          <div class='Card has-background-danger' >
-            <div class="card-content">
-              <p class="title">
+          <div className='Card has-background-danger' >
+            <div className="card-content">
+              <p className="title">
               </p>
-              <p class="subtitle">Riesgo Alto
+              <p className="subtitle">Riesgo Alto
               </p>
               <h4>{statistics.totals.highRisk.numPatients}</h4>
             </div>
           </div>
-          <div class='Card has-background-warning' >
-            <div class="card-content">
-              <p class="title">
+          <div className='Card has-background-warning' >
+            <div className="card-content">
+              <p className="title">
               </p>
-              <p class="subtitle">Riesgo Medio
+              <p className="subtitle">Riesgo Medio
               </p>
               <h4>{statistics.totals.midRisk.numPatients}</h4>
             </div>
           </div>
-          <div class='Card has-background-success' >
-            <div class="card-content">
-              <p class="title">
+          <div className='Card has-background-success' >
+            <div className="card-content">
+              <p className="title">
               </p>
-              <p class="subtitle">Riesgo bajo
+              <p className="subtitle">Riesgo bajo
               </p>
               <h4>{statistics.totals.lowRisk.numPatients}</h4>
             </div>

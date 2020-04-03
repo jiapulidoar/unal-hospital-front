@@ -4,11 +4,11 @@ import 'bulma/css/bulma.css'
 export default class History extends Component {
   render(){
     return(
-      <div class="section">
-        <h1 class="title">
+      <div className="section">
+        <h1 className="title">
           Historia
         </h1>
-        <h2 class="subtitle">
+        <h2 className="subtitle">
           Evolución del Paciente
         </h2>
       </div>

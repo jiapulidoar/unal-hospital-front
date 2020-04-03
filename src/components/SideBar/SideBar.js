@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./SideBar.scss";
 
 export default class SideBar extends Component {
@@ -21,17 +22,18 @@ export default class SideBar extends Component {
             
             <div className="content">
               <div className="user">
-                <p>Dr. Jonatan</p>
+                  <FontAwesomeIcon icon="user-circle" size="6x" />
+                  <p>Dr. Jonatan</p>
+                  <small onClick={this.handleSubmit}>(cerrar sesión)</small>
               </div>
 
               <div className="menu">
                 <div className="menu-label">SECCIONES</div>
-                <div className="item">Tabla de respuestas</div>
+                <div className="item">
+                  <FontAwesomeIcon icon="table" />
+                  Tabla de respuestas
+                </div>
               </div>
-
-              <button className="button is-primary" onClick={this.handleSubmit}>
-                Logout
-              </button>
             </div>
           </div>
 
@@ -39,29 +41,25 @@ export default class SideBar extends Component {
           <p className="menu-label"># RESPUESTAS POR RANKING</p>
           <ul className="menu-list">
             <li>
-              <ul className="Payments-Transfers-B">
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse Ellipse-3" />
-                    Crítico (20)
-                  </a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse Ellipse-4" />
-                    Medio (489)
-                  </a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse Ellipse-5" />
-                    Bajo (1895)
-                  </a>
-                </li>
-              </ul>
+              {/*eslint-disable-next-line*/}
+              <a className="Dot">
+                <div className="Ellipse Ellipse-3" />
+                Crítico (20)
+              </a>
+            </li>
+            <li>
+              {/*eslint-disable-next-line*/}
+              <a className="Dot">
+                <div className="Ellipse Ellipse-4" />
+                Medio (489)
+              </a>
+            </li>
+            <li>
+              {/*eslint-disable-next-line*/}
+              <a className="Dot">
+                <div className="Ellipse Ellipse-5" />
+                Bajo (1895)
+              </a>
             </li>
           </ul>
           </div>

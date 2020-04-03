@@ -1,4 +1,3 @@
-import HospotalLogo from "../../images/hospital.png";
 import React, { Component } from "react";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
