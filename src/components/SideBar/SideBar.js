@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./SideBar.css";
+import "./SideBar.scss";
 
 export default class SideBar extends Component {
 
@@ -13,29 +13,30 @@ export default class SideBar extends Component {
   render() {
     return (
       <>
-        <aside className="menu">
-          <p className="menu-label GENERAL">General</p>
-          <ul className="menu-list">
-            <li>
-              {/*eslint-disable-next-line*/}
-              <a className="is-active">Tabla de respuestas</a>
-              <ul className="Dashboard-Customers">
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a>Estadísitcas generales</a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a>Mapa</a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a>Casos críticos sin atender</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <p className="menu-label">RESPUESTAS POR RANKING</p>
+        <aside className="sidebar">
+          <div className="top">
+            <div className="logo">
+              <h2>DASHBOARD</h2>
+            </div>
+            
+            <div className="content">
+              <div className="user">
+                <p>Dr. Jonatan</p>
+              </div>
+
+              <div className="menu">
+                <div className="menu-label">SECCIONES</div>
+                <div className="item">Tabla de respuestas</div>
+              </div>
+
+              <button className="button is-primary" onClick={this.handleSubmit}>
+                Logout
+              </button>
+            </div>
+          </div>
+
+          <div className="bottom menu">
+          <p className="menu-label"># RESPUESTAS POR RANKING</p>
           <ul className="menu-list">
             <li>
               <ul className="Payments-Transfers-B">
@@ -63,65 +64,7 @@ export default class SideBar extends Component {
               </ul>
             </li>
           </ul>
-          <p className="menu-label">RESPUESTAS POR SEXO</p>
-          <ul className="menu-list">
-            <li>
-              <ul className="Payments-Transfers-B">
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse" />
-                    Femenino (20)
-                  </a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse" />
-                    Masculino (489)
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <p className="menu-label">RESPUESTAS POR EDAD</p>
-          <ul className="menu-list">
-            <li>
-              <ul className="Payments-Transfers-B">
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse" />0 a 19 años (20)
-                  </a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse" />
-                    20 a 40 años (489)
-                  </a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse" />
-                    40 a 60 años (1895)
-                  </a>
-                </li>
-                <li>
-                  {/*eslint-disable-next-line*/}
-                  <a className="Dot">
-                    <div className="Ellipse" />
-                    60 en adelante (1895)
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
-          <button className="button is-primary" onClick={this.handleSubmit}>
-            Logout
-          </button>
+          </div>
         </aside>
       </>
     );

@@ -1,9 +1,54 @@
-.menu-list :hover {
-  background-color: darkgray;
+@import 'styles/colors.scss';
+
+.sidebar {
+  height: 100vh;
+  width: 22vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.sidebar .top .logo {
+  background: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-weight: bold;
+  height: 15vh;
+}
+
+.sidebar .top .user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+}
+
+.sidebar .top .content,
+.sidebar .bottom {
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+
+.sidebar .top .menu .item {
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  background: $primary;
+  cursor: pointer;
+}
+
+.sidebar .bottom {
+  position: sticky!important;
+  bottom: 0;
+}
+
 .menu-list li ul {
   border-left: 0px;
 }
+
 .GENERAL {
   width: 80.1px;
   height: 36.5px;
@@ -16,12 +61,14 @@
   letter-spacing: 1.19px;
   color: #7a7a7a;
 }
+
 .Rectangle-6 {
   width: 272px;
   height: 36.5px;
   border-radius: 2px;
   background-color: var(--primary);
 }
+
 .Dashboard-Customers {
   width: 282px;
   height: auto;
@@ -39,7 +86,6 @@
   color: #ffffff;
 }
 .Payments-Transfers-B {
-  width: 282px;
   height: auto;
   font-family: NunitoSans;
   font-size: 16px;
