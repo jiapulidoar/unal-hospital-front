@@ -1,7 +1,7 @@
 export const dataRank = [
   {
          idPatient: "343",
-         risk: 78.5,
+         risk: 0.785,
          phoneNumber: 3144366789,
          name: "Jhon Doe",
          age: 55,
@@ -16,7 +16,7 @@ export const dataRank = [
       },
       {
           idPatient: "d@mail",
-          risk: 69,
+          risk: 0.69,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
           age: 55,
@@ -31,7 +31,7 @@ export const dataRank = [
       },
       {
           idPatient: "3",
-          risk: 55.5,
+          risk: 0.55,
           phoneNumber: 3144366789,
           name: "Marie Curie",
           age: 55,
@@ -46,7 +46,7 @@ export const dataRank = [
       },
       {
           idPatient: "2",
-          risk: 23.5,
+          risk: 0.235,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
           age: 55,
@@ -61,7 +61,7 @@ export const dataRank = [
       },
       {
           idPatient: "1",
-          risk: 22.5,
+          risk: 0.225,
           phoneNumber: 3144366789,
           name: "Ada Lovelace",
           age: 55,
@@ -76,7 +76,7 @@ export const dataRank = [
       },
       {
           idPatient: "456",
-          risk: 13.5,
+          risk: 0.135,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
           age: 55,
@@ -91,7 +91,7 @@ export const dataRank = [
       },
       {
           idPatient: "n@mail",
-          risk: 5,
+          risk: 0.6,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
           age: 55,
@@ -107,21 +107,10 @@ export const dataRank = [
 ]
 
 
-export const dataStatistics = {
-    totals: {
-      highRisk:{
-        numPatients:134,
-        code: "red"
-      },
-      midRisk:{
-        numPatients:134,
-        code: "yellow"
-      },
-      lowRisk:{
-        numPatients:134,
-        code: "green"
-      }
-  }
+export const semaphore = {
+    high: 134,
+    medium: 134,
+    low: 134
 }
 
 export const patient = {

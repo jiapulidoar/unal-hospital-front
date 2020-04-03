@@ -2,7 +2,7 @@
 
 .sidebar {
   height: 100vh;
-  width: 22vw;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,22 +73,6 @@
   color: #ffffff;
 }
 
-.Ellipse {
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  margin-right: 10px;
-  background-color: #bdbdbd !important;
-}
-.Ellipse-3 {
-  background-color: #ff3860 !important;
-}
-.Ellipse-4 {
-  background-color: #ffdd57 !important;
-}
-.Ellipse-5 {
-  background-color: #23d160 !important;
-}
 .Dot {
   display: flex !important;
   align-items: center;

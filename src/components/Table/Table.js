@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types'
-import mapimg from './mapcovid.png'
+import Ellipse from 'components/Ellipse/Ellipse.jsx'
 import PatientDetail from "../../components/PatientDetail/PatientDetail";
+
+import './Table.scss'
 
 class DataTable extends Component {
   state = {
@@ -47,12 +49,12 @@ handleToggle = (event,patient) => {
 /**/
 
  render() {
-   const { ranking, statistics } = this.props
+   const { ranking } = this.props
    console.log(ranking);
 
     //render HTML table
     return (
-    <div>
+    <div id="data-table">
       <div className="columns">
         <div className="column is-offset-1 is-10">
             <h3><b>Ranking Pacientes</b></h3>
@@ -75,13 +77,15 @@ handleToggle = (event,patient) => {
                {ranking.map(patient =>
                   <tr key={patient.idPatient}>
                   <td>{patient.idPatient}</td>
-                  <td>{patient.risk}</td>
+                  <td class="risk">
+                    <Ellipse color={patient.risk > 0.7 ? "red" : (patient.risk > 0.5 ? "yellow" : "green")} />
+                    </td>
                   <td>{patient.date.split(",")[0]}</td>
                   <td>{patient.age}</td>
                   <td>{patient.gender}</td>
                   <td>{patient.phoneNumber}</td>
                   <td>{patient.email}</td>
-                  <td onClick={(e) => this.handleToggle(e, patient.idPatient)}>Detalle</td>
+                  <td className="detail" onClick={(e) => this.handleToggle(e, patient.idPatient)}>Detalle</td>
                 </tr>
                )}
               </tbody>
@@ -89,9 +93,9 @@ handleToggle = (event,patient) => {
         </div>
       </div>
 
-          <div className="container">
-            {this.state.toggled ? <PatientDetail id="p1234" toggled={true} idPatient={this.state.idPatient}/> : null}
-          </div>
+      <div className="container">
+        {this.state.toggled ? <PatientDetail id="p1234" toggled={true} idPatient={this.state.idPatient}/> : null}
+      </div>
     </div>
     )
   }
@@ -99,7 +103,6 @@ handleToggle = (event,patient) => {
 
 DataTable.propTypes = {
   ranking: PropTypes.array,
-  statistics: PropTypes.object
 }
 
 export default DataTable

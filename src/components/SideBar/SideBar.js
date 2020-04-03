@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { number, shape } from 'prop-types'
 import "./SideBar.scss";
+import Ellipse from "components/Ellipse/Ellipse";
 
-export default class SideBar extends Component {
+class SideBar extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
@@ -12,6 +14,8 @@ export default class SideBar extends Component {
   };
 
   render() {
+    const { semaphore } = this.props
+
     return (
       <>
         <aside className="sidebar">
@@ -43,22 +47,22 @@ export default class SideBar extends Component {
             <li>
               {/*eslint-disable-next-line*/}
               <a className="Dot">
-                <div className="Ellipse Ellipse-3" />
-                Crítico (20)
+                <Ellipse color="red" />
+                Crítico ({semaphore ? semaphore.high : '...'})
               </a>
             </li>
             <li>
               {/*eslint-disable-next-line*/}
               <a className="Dot">
-                <div className="Ellipse Ellipse-4" />
-                Medio (489)
+                <Ellipse color="yellow" />
+                Medio ({semaphore ? semaphore.medium : '...'})
               </a>
             </li>
             <li>
               {/*eslint-disable-next-line*/}
               <a className="Dot">
-                <div className="Ellipse Ellipse-5" />
-                Bajo (1895)
+                <Ellipse color="green" />
+                Bajo ({semaphore ? semaphore.low : '...'})
               </a>
             </li>
           </ul>
@@ -68,3 +72,13 @@ export default class SideBar extends Component {
     );
   }
 }
+
+SideBar.propTypes = {
+  semaphore: shape({
+    high: number,
+    medium: number,
+    low: number
+  })
+}
+
+export default SideBar

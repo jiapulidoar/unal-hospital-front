@@ -53,10 +53,6 @@ export default class PatientDetail extends Component {
   render() {
     return (
       <div id="patient-detail" className="is-clipped">
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
         <div class={`modal ${this.state.toggled ? "is-active" : ""}`}>
           <div class="modal-background"></div>
           <div class="modal-card">

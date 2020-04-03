@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import bulmaCalendar from 'bulma-calendar';
 import DataTable from "../../components/Table/Table";
-import PatientDetail from "../../components/PatientDetail/PatientDetail";
 import SideBar from "../../components/SideBar/SideBar";
-import { dataRank, dataStatistics } from "../../data";
+import { dataRank, semaphore } from "../../data";
 
 import "./Dashboard.scss";
 
@@ -22,42 +21,33 @@ export default class Dashboard extends Component {
     console.log(this.state)
     this.setState({
       ranking: dataRank,
-      statistics: dataStatistics
+      semaphore: semaphore
     });
 
+    // TODO: Initialize and fetch bulmaCalendar values
     const calendars = bulmaCalendar.attach('[type="date"]', { isRange: true });
 
-    // Loop on each calendar initialized
     calendars.forEach(calendar => {
-      // Add listener to date:selected event
       calendar.on('date:selected', date => {
         console.log(date);
       });
     });
+    
+    var element = document.querySelector('.datetimepicker-dummy-wrapper input.is-hidden');
+    console.log(element);
 
-
-var element = document.querySelector('.datetimepicker-dummy-wrapper input.is-hidden');
-console.log(element);
-
-element.addEventListener('change', e => console.log(e))
-// console.log(bulmaCalendar.);
-
-// if (element) {
-// 	// bulmaCalendar instance is available as element.bulmaCalendar
-// 	element.bulmaCalendar.on('select', function(datepicker) {
-// 		console.log(datepicker.data.value());
-// 	});
-// }
+    element.addEventListener('change', e => console.log(e))
   }
 
   render() {
-    const { ranking, statistics } = this.state;
-    console.log(ranking && statistics ? true : false);
+    const { ranking, semaphore } = this.state;
+    console.log(semaphore);
+    
 
     return (
       <div className="rootRow">
         <div className="colSideBar">
-          <SideBar />
+          <SideBar semaphore={semaphore} />
         </div>
         <div className="colDashboard">
           <div id="dashboard-page">
@@ -114,17 +104,13 @@ element.addEventListener('change', e => console.log(e))
                 <button className="filter button is-primary">
                   Filtrar
                 </button>
-
-<button className="button is-primary" onClick={this.handleToggle}>
-  PatientDetail
-</button>
               </div>
 
               </div>
             </div>
 
-            {ranking && statistics ? (
-              <DataTable ranking={ranking} statistics={statistics} />
+            {ranking ? (
+              <DataTable ranking={ranking} />
             ) : (
               ""
             )}
