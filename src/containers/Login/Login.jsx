@@ -38,7 +38,7 @@ class Login extends Component  {
     return (
       <div id="login-page">
         <div className="header">
-          <h2>DASHBOARD</h2>
+          <img src={process.env.PUBLIC_URL + "/images/Group 47.png"} alt=""/>
         </div>
         <div className="content">
           <div className="wrapper">

@@ -15,8 +15,10 @@
   justify-content: space-around;
   color: white;
   font-weight: bold;
-  height: 15vh;
+  height: 18vh;
 }
+
+.sidebar .top .logo img { max-width: 80%; }
 
 .sidebar .top .user {
   padding-top: 3vh;
