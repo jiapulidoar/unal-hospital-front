@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import bulmaCalendar from 'bulma-calendar';
 import DataTable from "../../components/Table/Table";
 import PatientDetail from "../../components/PatientDetail/PatientDetail";
 import SideBar from "../../components/SideBar/SideBar";
@@ -24,6 +25,30 @@ export default class Dashboard extends Component {
       ranking: dataRank,
       statistics: dataStatistics
     });
+
+    const calendars = bulmaCalendar.attach('[type="date"]', { isRange: true });
+
+    // Loop on each calendar initialized
+    calendars.forEach(calendar => {
+      // Add listener to date:selected event
+      calendar.on('date:selected', date => {
+        console.log(date);
+      });
+    });
+
+
+var element = document.querySelector('.datetimepicker-dummy-wrapper input.is-hidden');
+console.log(element);
+
+element.addEventListener('change', e => console.log(e))
+// console.log(bulmaCalendar.);
+
+// if (element) {
+// 	// bulmaCalendar instance is available as element.bulmaCalendar
+// 	element.bulmaCalendar.on('select', function(datepicker) {
+// 		console.log(datepicker.data.value());
+// 	});
+// }
   }
 
   handleToggle = event => {
@@ -62,15 +87,7 @@ export default class Dashboard extends Component {
 
                 <div className="field">
                   <p className="control has-icons-left">
-                    <input className="input" type="text" placeholder="Fecha inicial" />
-                    <span className="icon is-small is-left">
-                    </span>
-                  </p>
-                </div>
-                
-                <div className="field">
-                  <p className="control">
-                    <input className="input" type="email" placeholder="Fecha final" />
+                    <input onSelect={e => console.log(e.data)} type="date"/>
                   </p>
                 </div>
 

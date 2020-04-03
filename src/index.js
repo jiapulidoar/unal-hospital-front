@@ -12,6 +12,9 @@ import Login from "./containers/Login/Login.jsx";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import CityMap from "./components/CityMap/CityMap";
 
+
+import "bulma-calendar/dist/css/bulma-calendar.min.css"
+
 import "./index.css";
 
 library.add(faTable, faUserCircle)
