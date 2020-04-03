@@ -1,5 +1,10 @@
 @import 'styles/colors.scss';
 
+#login-page .unal-logo { 
+  max-width: 60%; 
+  margin-top: 5vh;
+}
+
 #login-page .header,
 #login-page .content {
   display: flex;
@@ -18,8 +23,8 @@
 }
 
 #login-page .content .wrapper {
+  margin-top: 5vh;
   width: 20vw;
-  margin-top: -5vh;
   text-align: center;
 }
 

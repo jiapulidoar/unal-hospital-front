@@ -58,6 +58,8 @@ class Login extends Component  {
 
               <button onClick={this.handleSubmit} className="button is-fullwidth">Iniciar sesión</button>
             </form>
+            <img className="unal-logo" src={process.env.PUBLIC_URL + "/images/unal.png"} alt=""/>
+
           </div>
         </div>
       </div>

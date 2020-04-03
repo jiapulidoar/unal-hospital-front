@@ -70,6 +70,7 @@ export default class Dashboard extends Component {
         <div className="colSideBar">
           <SideBar semaphore={semaphore} onSelect={this.setCurrentSemaphore} />
         </div>
+
         <div className="colDashboard">
           <div id="dashboard-page">
             <div className="top">
@@ -133,10 +134,14 @@ export default class Dashboard extends Component {
               ""
             )}
 
+            <div className="bottom">
+              <small>MeCuido es una iniciativa de profesores y estudiantes de la Universidad Nacional de Colombia. Para más información, haz clic <a href="/about">aquí</a>. </small>
+            </div>
+
           </div>
+
+          
         </div>
-
-
       </div>
     );
   }
