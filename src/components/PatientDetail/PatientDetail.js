@@ -25,22 +25,22 @@ export default class PatientDetail extends Component {
       date: "",
       history:[ // Faked, Improve later
         {
-          risk:0.2,
+          risk:0.9,
           date:"3/30/2020, 12:47:02 PM",
           info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum neque nibh, vehicula id convallis vel, bibendum sed ante. Donec eget tellus non nunc bibendum bibendum. Morbi sollicitudin sollicitudin est, eget dapibus eros hendrerit nec. Vestibulum mattis ultricies malesuada. Quisque porttitor eu neque vitae viverra. Donec eget dui erat. Ut dictum non libero vitae scelerisque. Donec sit amet turpis dolor. Sed consectetur neque nec arcu rutrum ornare. Aenean eu elit iaculis, pharetra enim faucibus, rhoncus ligula. Vestibulum congue diam id massa ultricies, nec mollis dolor pretium. Fusce consequat pharetra nibh nec auctor. "
         },
         {
-          risk:0.4,
+          risk:0.6,
           date:"3/30/2020, 12:47:02 PM",
           info: "Mauris a massa mi. Pellentesque consectetur orci eget ornare rutrum. Praesent at iaculis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sed sapien vitae nisl ultrices aliquet. In aliquam purus nec auctor tincidunt. Proin venenatis erat et justo egestas, vel aliquam enim cursus. "
         },
         {
-          risk:0.4,
+          risk:0.6,
           date:"3/30/2020, 12:47:02 PM",
           info: "Ut ut rhoncus leo. Nunc congue consectetur nibh, ac feugiat elit varius eu. Aenean nec nulla aliquam, molestie elit in, pretium leo. Vivamus facilisis sodales erat vel dignissim. Sed nulla magna, tincidunt sed bibendum eu, tempor et lorem. Sed lacus turpis, varius vitae molestie in, mollis ac quam. Nam non tempor risus, eu vestibulum mauris. "
         },
         {
-          risk:0.9,
+          risk:0.2,
           date:"3/30/2020, 12:47:02 PM",
           info: "Aenean dui mauris, venenatis luctus pretium id, cursus vel nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ac congue nunc, eget consectetur augue. Nulla sed est ac leo placerat bibendum in nec purus. Etiam eu tincidunt sem. Integer ut nisl in odio pharetra porttitor eu vel justo. Maecenas fermentum, mi at vehicula dignissim, nibh ligula mattis tellus, eget tempor ipsum lorem et velit."
         }
@@ -106,7 +106,7 @@ export default class PatientDetail extends Component {
                   let subtitle = (
                     <div>
                       <p className="Dot">
-                        <div className={`Ellipse Ellipse-${(item.rank === 'high') ? '3': (item.rank === 'medium') ? '2' : '1'}`} />
+                        <div className={`Ellipse Ellipse-${item.risk > 0.7 ? "3" : (item.risk > 0.5 ? "2" : "1")}`} />
                         {item.date}
                       </p>
                     </div>
@@ -115,7 +115,7 @@ export default class PatientDetail extends Component {
                   return(
                     <Collapsible title={title} subtitle={subtitle} arrow_text="Ver detalle">
                       <p className="content">
-                        {this.info}
+                        {item.info}
                       </p>
                     </Collapsible>
                   )

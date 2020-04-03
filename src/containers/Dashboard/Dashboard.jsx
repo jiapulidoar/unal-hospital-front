@@ -27,19 +27,18 @@ export default class Dashboard extends Component {
       semaphore: semaphore
     });
 
-    // TODO: Initialize and fetch bulmaCalendar values
-    const calendars = bulmaCalendar.attach('[type="date"]', { isRange: true });
-
-    calendars.forEach(calendar => {
-      calendar.on('date:selected', date => {
-        console.log(date);
-      });
-    });
+    // Check this beforehand -> https://creativebulma.net/product/calendar/demo
+    const calendars = bulmaCalendar.attach('[type="date"]', { 
+      isRange: true
+     });
     
-    var element = document.querySelector('.datetimepicker-dummy-wrapper input.is-hidden');
-    console.log(element);
+    var element = document.querySelector('#date-filter');
+    if(element){
+      element.bulmaCalendar.on('select', (datepicker)=>{
+        console.log(datepicker.data.value()); ////////asdfasdfsafsafdsadf FECHASFECHASFECHASFECHASFECHASFECHAS
+      })
+    }
 
-    element.addEventListener('change', e => console.log(e))
   }
 
   setCurrentSemaphore = currentSemaphore => {
@@ -81,12 +80,12 @@ export default class Dashboard extends Component {
                   <select>
                     <option>Ranking</option>
                     <option>...</option>
-                  </select>
+                  </select>filter
                 </div>
 
                 <div className="field">
                   <p className="control has-icons-left">
-                    <input onSelect={e => console.log(e.data)} type="date"/>
+                    <input id="date-filter" type="date"/>
                   </p>
                 </div>
 
