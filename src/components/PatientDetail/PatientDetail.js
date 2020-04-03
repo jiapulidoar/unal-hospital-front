@@ -1,9 +1,8 @@
 import React, { Component } from "react";
+import Collapsible from '../Collapsible/Collapsible'
 import "bulma/css/bulma.css";
 import { patient } from "../../data/index.js";
-import './PatientDetail.css'
-//import Answers from "./Answers";
-//import History from "./History";
+import './PatientDetail.scss';
 
 export default class PatientDetail extends Component {
   constructor(props) {
@@ -25,7 +24,7 @@ export default class PatientDetail extends Component {
       },
       location : "",
       date: "",
-      answers:{},
+      history: [],
       times: 0,
       toggled: true,
     };
@@ -36,7 +35,7 @@ export default class PatientDetail extends Component {
      }
      this.interval = setInterval(() => {
        this.get(this.props.id)
-     }, 59000)
+     }, 59000)  
   }
 
   get(patient_id) {
@@ -74,16 +73,35 @@ export default class PatientDetail extends Component {
             <section class="modal-card-body">
               <div className="content">
                 <b>Información</b>
-                  <ul class="clean-ul">
-                    <li><strong>Sexo:</strong> {this.state.gender == "male" ? 'Masculino': 'Femenino'}</li>
-                    <li><strong>Edad:</strong> {this.state.age}</li>
-                    <li><strong>Ubicación:</strong> {this.state.location}</li>
-                  </ul>
+                <ul class="clean-ul">
+                  <li><strong>Sexo:</strong> {this.state.gender == "male" ? 'Masculino': 'Femenino'}</li>
+                  <li><strong>Edad:</strong> {this.state.age}</li>
+                  <li><strong>Ubicación:</strong> {this.state.location}</li>
+                </ul>
                 <b>Contacto</b>
                 <ul class="clean-ul">
                     <li><strong>Telefono:</strong> {this.state.phoneNumber}</li>
                     <li><strong>Email:</strong> {this.state.email}</li>
-                  </ul>
+                </ul>
+                {this.state.history.map((item,i)=>{
+                  let title = (i==0) ? 'Ultima Respuesta' : (i==1) ? 'Respuestas Anteriores' : null;
+                  let subtitle = (
+                    <div>
+                      <p className="Dot">
+                        <div className={`Ellipse Ellipse-${(this.rank == 'high') ? '3': (this.rank == 'medium') ? '2' : '1'}`} />
+                        {item.date}
+                      </p>
+                    </div>
+                    )
+                  
+                  return(
+                    <Collapsible title={title} subtitle={subtitle} arrow_text="Ver detalle">
+                      <p className="content">
+                        {this.info}
+                      </p>
+                    </Collapsible>
+                  )
+                })}
               </div>
             </section>
           </div>

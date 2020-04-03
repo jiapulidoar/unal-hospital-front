@@ -1,0 +1,36 @@
+/*#patient-detail .tabs li > div { cursor: pointer; }*/
+
+.bg-high {
+  background-color: #ff3860 !important;
+}
+.bg-medium {
+  background-color: #ffdd57 !important;
+}
+.bg-low {
+  background-color: #23d160 !important;
+}
+
+.clean-ul{
+  list-style-type: none !important;
+}
+
+.Ellipse {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #bdbdbd !important;
+}
+.Ellipse-3 {
+  background-color: #ff3860 !important;
+}
+.Ellipse-2 {
+  background-color: #ffdd57 !important;
+}
+.Ellipse-1 {
+  background-color: #23d160 !important;
+}
+.Dot {
+  display: flex !important;
+  align-items: center;
+}
