@@ -1,70 +1,53 @@
 import React, { Component } from "react";
+import Collapsible from '../Collapsible/Collapsible'
 import "bulma/css/bulma.css";
-import { patientData } from "../../data/index.js";
-import Detail from "./Detail";
-import Answers from "./Answers";
-import History from "./History";
+import { patient } from "../../data/index.js";
+import './PatientDetail.scss';
 
 export default class PatientDetail extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      patient_id: "",
-      rank: 0,
-      risk: 0,
-      info: {},
-      contact: {},
-      location: {},
+      patient_id: this.props.id,
+      rank: "high",
+      phoneNumber: "",
+      name: "",
+      age: 55,
+      gender: "",
+      email: "",
+      password: "",
+      userType: "",
+      geoLocation: {
+        latitude: 0,
+        longitude: 0 
+      },
+      location : "",
+      date: "",
+      history: [],
       times: 0,
-      toggled: this.props.toggled,
-      tab: 1
+      toggled: props.toggled,
     };
   }
   componentDidMount() {
-    // if(this.state.times===0) {
-    //   this.get(this.props.id)
-    // }
-    // this.interval = setInterval(() => {
-    //   this.get(this.props.id)
-    // }, 59000)
+     if(this.state.times===0) {
+       this.get(this.props.id)
+     }
+     this.interval = setInterval(() => {
+       this.get(this.props.id)
+     }, 59000)  
   }
 
   get(patient_id) {
     //query from db
     // optional fields are name, lastName, email, latLng
-    const patient = patientData;
-    this.setState(prevState => ({
-      patient_id: patient_id,
-      rank: patient.rank,
-      risk: patient.risk,
-      info: patient.info,
-      contact: patient.contact,
-      location: patient.location,
-      questions: patient.questions,
-      times: prevState.times + 1,
-      toggled: true
-    }));
+    let state = patient;
+    state.times = 1;
+    this.setState(state);
   }
 
   close() {
     this.setState({ toggled: false });
-  }
-
-  tab() {
-    if (this.state.tab === 1) {
-      let detail = (({ rank, risk, info, contact, location }) => ({
-        rank,
-        risk,
-        info,
-        contact,
-        location
-      }))(this.state);
-      return <Detail patient={detail} />;
-    } else if (this.state.tab === 2) {
-      return <Answers questions={this.state.questions} />;
-    }
-    return <History />;
   }
 
   render() {
@@ -74,13 +57,11 @@ export default class PatientDetail extends Component {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
-        <link rel="stylesheet" type="text/css" href="./PatientDetail.css" />
-
-        <div className={`modal ${this.state.toggled ? "is-active" : ""}`}>
-          <div className="modal-background"></div>
-          <div className="modal-card">
-            <header className="modal-card-head">
-              <p className="modal-card-title">Paciente </p>
+        <div class={`modal ${this.state.toggled ? "is-active" : ""}`}>
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class={`modal-card-head bg-${this.state.rank}`} b>
+              <p class={"modal-card-title is-capitalized"}>{this.state.name} </p>
               <button
                 className="delete"
                 aria-label="close"
@@ -89,36 +70,39 @@ export default class PatientDetail extends Component {
                 }}
               ></button>
             </header>
-            <section className="modal-card-body">
-              <div className="tabs is-centered">
-                <ul>
-                  <li className={`${this.state.tab === 1 ? "is-active" : ""}`}>
-                    <div onClick={() => this.setState({ tab: 1 })}>
-                      <span className="icon is-small">
-                        <i className="fa fa-user" aria-hidden="true"></i>
-                      </span>
-                      <span>Descripcion</span>
-                    </div>
-                  </li>
-                  <li className={`${this.state.tab === 2 ? "is-active" : ""}`}>
-                    <div onClick={() => this.setState({ tab: 2 })}>
-                      <span className="icon is-small">
-                        <i className="fa fa-paper-plane" aria-hidden="true"></i>
-                      </span>
-                      <span>Preguntas</span>
-                    </div>
-                  </li>
-                  <li className={`${this.state.tab === 3 ? "is-active" : ""}`}>
-                    <div onClick={() => this.setState({ tab: 3 })}>
-                      <span className="icon is-small">
-                        <i className="fa fa-file-text" aria-hidden="true"></i>
-                      </span>
-                      <span>Historia</span>
-                    </div>
-                  </li>
+            <section class="modal-card-body">
+              <div className="content">
+                <b>Información</b>
+                <ul class="clean-ul">
+                  <li><strong>Sexo:</strong> {this.state.gender === "male" ? 'Masculino': 'Femenino'}</li>
+                  <li><strong>Edad:</strong> {this.state.age}</li>
+                  <li><strong>Ubicación:</strong> {this.state.location}</li>
                 </ul>
+                <b>Contacto</b>
+                <ul class="clean-ul">
+                    <li><strong>Telefono:</strong> {this.state.phoneNumber}</li>
+                    <li><strong>Email:</strong> {this.state.email}</li>
+                </ul>
+                {this.state.history.map((item,i)=>{
+                  let title = (i===0) ? 'Ultima Respuesta' : (i===1) ? 'Respuestas Anteriores' : null;
+                  let subtitle = (
+                    <div>
+                      <p className="Dot">
+                        <div className={`Ellipse Ellipse-${(this.rank === 'high') ? '3': (this.rank === 'medium') ? '2' : '1'}`} />
+                        {item.date}
+                      </p>
+                    </div>
+                    )
+                  
+                  return(
+                    <Collapsible title={title} subtitle={subtitle} arrow_text="Ver detalle">
+                      <p className="content">
+                        {this.info}
+                      </p>
+                    </Collapsible>
+                  )
+                })}
               </div>
-              {this.tab()}
             </section>
           </div>
         </div>

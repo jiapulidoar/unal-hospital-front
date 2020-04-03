@@ -124,32 +124,42 @@ export const dataStatistics = {
   }
 }
 
-
-export const patientData = {
-  id: "p1234",
-  rank: 100,
-  risk: 4.0,
-  info:{
-    name: "aaaaaa bbbbb", //null if not
-    lastName: "Cccccccc Dddddddd", //null if not
-    age: 25,
-    sex: "Male"
+export const patient = {
+  phoneNumber: "3144366789",
+  rank: "high",
+  name: "Jhon Doe",
+  age: 55,
+  gender: "male",
+  email: "example@example.com",
+  password: "somePassword",
+  userType: "patient",
+  geoLocation: {
+    latitude: 38.926639,
+    longitude: -77.033811
   },
-  contact: { // I guess one of these should be mandatory when registering
-    email: "test@test.com",
-    phone: "3333333333"
-  },
-  location:{
-    latLng: "sdf",
-    address: "Cll. 20 #4-20G",
-    city: "Bogota",
-    district: "Antonio Nariño",
-    neighborhood: "Restrepo"
-  },
-  questions: [
-    {question: "tiene coronavirus?", answer:"Vielleicht"},
-    {question: "es esto una pregunta?", answer:"Ja"},
-    {question: "io no se :v?", answer:"Ahhhhhh"}
+  location : "La Gaitana, Suba",
+  date: "3/30/2020, 12:47:02 PM",
+  history:[
+    {
+      rank:"high",
+      date:"3/30/2020, 12:47:02 PM",
+      info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum neque nibh, vehicula id convallis vel, bibendum sed ante. Donec eget tellus non nunc bibendum bibendum. Morbi sollicitudin sollicitudin est, eget dapibus eros hendrerit nec. Vestibulum mattis ultricies malesuada. Quisque porttitor eu neque vitae viverra. Donec eget dui erat. Ut dictum non libero vitae scelerisque. Donec sit amet turpis dolor. Sed consectetur neque nec arcu rutrum ornare. Aenean eu elit iaculis, pharetra enim faucibus, rhoncus ligula. Vestibulum congue diam id massa ultricies, nec mollis dolor pretium. Fusce consequat pharetra nibh nec auctor. "
+    },
+    {
+      rank:"medium",
+      date:"3/30/2020, 12:47:02 PM",
+      info: "Mauris a massa mi. Pellentesque consectetur orci eget ornare rutrum. Praesent at iaculis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sed sapien vitae nisl ultrices aliquet. In aliquam purus nec auctor tincidunt. Proin venenatis erat et justo egestas, vel aliquam enim cursus. "
+    },
+    {
+      rank:"medium",
+      date:"3/30/2020, 12:47:02 PM",
+      info: "Ut ut rhoncus leo. Nunc congue consectetur nibh, ac feugiat elit varius eu. Aenean nec nulla aliquam, molestie elit in, pretium leo. Vivamus facilisis sodales erat vel dignissim. Sed nulla magna, tincidunt sed bibendum eu, tempor et lorem. Sed lacus turpis, varius vitae molestie in, mollis ac quam. Nam non tempor risus, eu vestibulum mauris. "
+    },
+    {
+      rank:"low",
+      date:"3/30/2020, 12:47:02 PM",
+      info: "Aenean dui mauris, venenatis luctus pretium id, cursus vel nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ac congue nunc, eget consectetur augue. Nulla sed est ac leo placerat bibendum in nec purus. Etiam eu tincidunt sem. Integer ut nisl in odio pharetra porttitor eu vel justo. Maecenas fermentum, mi at vehicula dignissim, nibh ligula mattis tellus, eget tempor ipsum lorem et velit."
+    }
   ]
-  //answers:{}
 }
+
