@@ -81,7 +81,7 @@ export default class Dashboard extends Component {
                   <select>
                     <option>Ranking</option>
                     <option>...</option>
-                  </select>filter
+                  </select>
                 </div>
 
                 <div className="field">
