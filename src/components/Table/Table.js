@@ -93,7 +93,7 @@ handleToggle = (event,patient) => {
       </div>
 
       <div className="container">
-        {this.state.toggled ? <PatientDetail id="p1234" toggled={true} idPatient={this.state.idPatient}/> : null}
+        {this.state.toggled ? <PatientDetail toggled={true} idPatient={this.state.idPatient}/> : null}
       </div>
     </div>
     )
