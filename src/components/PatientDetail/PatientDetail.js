@@ -47,8 +47,11 @@ export default class PatientDetail extends Component {
       ],
       times: 0,
       toggled: props.toggled,
+      active_collapsible: null
     };
+
   }
+
   componentDidMount() {
      if(this.state.times===0) {
        this.get(this.props.idPatient)
@@ -71,6 +74,10 @@ export default class PatientDetail extends Component {
   close() {
     this.setState({ toggled: false });
     this.props.onPatientDetail(false);
+  }
+
+  onTabToggle = (id)=>{
+    this.setState({active_collapsible: id})
   }
 
   render() {
@@ -111,10 +118,17 @@ export default class PatientDetail extends Component {
                         {item.date}
                       </p>
                     </div>
-                    )
-
+                  )
                   return(
-                    <Collapsible title={title} subtitle={subtitle} arrow_text="Ver detalle">
+                    <Collapsible
+                      key={i}
+                      id={i}
+                      title={title}
+                      subtitle={subtitle}
+                      arrow_text="Ver detalle"
+                      onTabToggle={this.onTabToggle}
+                      isExpanded={i === this.state.active_collapsible}
+                    >
                       <p className="content">
                         {item.info}
                       </p>

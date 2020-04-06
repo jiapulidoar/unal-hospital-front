@@ -3,19 +3,31 @@ import PropTypes from 'prop-types';
 import "bulma/css/bulma.css";
 import './Collapsible.scss';
 
+//use props id and onTabToggle(this is a function) in order to restrict to only one tab open
 
 class Collapsible extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isExpanded: false
+      isExpanded: false,
+      id: this.props.id
     }
   }
 
   toggle(){
-    this.setState((prevState)=>({
-      isExpanded: !prevState.isExpanded
-    }));
+    if(this.props.onTabToggle) {
+      this.props.onTabToggle((!this.state.isExpanded) ? this.state.id : null)
+    } else {
+      this.setState((prevState)=>({
+        isExpanded: !prevState.isExpanded
+      }));
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.isExpanded !== this.props.isExpanded) {
+      this.setState({isExpanded: this.props.isExpanded});
+    }
   }
 
   render(){
@@ -48,6 +60,7 @@ class Collapsible extends Component {
 }
 
 Collapsible.propTypes = {
+  id: PropTypes.oneOfType([ PropTypes.string, PropTypes.element ]).isRequired,
   title: PropTypes.oneOfType([ PropTypes.string, PropTypes.element ]),
   subtitle: PropTypes.oneOfType([ PropTypes.string, PropTypes.element ]),
   arrow_text: PropTypes.string,
