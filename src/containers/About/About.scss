@@ -1,0 +1,50 @@
+@import 'styles/colors.scss';
+
+#about-page {
+    background-color: $primary;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#about-page .subtitle {
+    color: $primary;
+    font-weight: 500;
+}
+
+#about-page > .columns {
+    height: 80vh;
+    width: 80vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#about-page .credits {
+    background: white;
+    border-radius: 1rem;
+}
+
+#about-page > .columns > .column:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#about-page > .columns > .column:last-child {
+    background-color: white;
+    padding: 3rem;
+}
+
+#about-page .column h3 {
+    color: $primary;
+    font-weight: 500;
+}
+
+#about-page .credits > .column {
+    display: flex;
+    justify-content: space-around;
+}
+
+#about-page small { color: $textGray; }

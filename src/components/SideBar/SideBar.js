@@ -34,7 +34,7 @@ class SideBar extends Component {
         <aside className="sidebar">
           <div className="top">
             <div className="logo">
-              <img src={process.env.PUBLIC_URL + "/images/Group 47.png"} alt=""/>
+              <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt=""/>
             </div>
             
             <div className="content">

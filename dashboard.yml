@@ -315,6 +315,13 @@ definitions:
         example:
           - patient
           - doctor
+      # location:
+      #   type: object
+      #   properties:
+      #     type: 
+      #       type: string
+      #     value:
+      #       type: object
       geoLocation:
         $ref: '#/definitions/GeoLocation'
       date:
@@ -397,45 +404,45 @@ definitions:
           to:
             type: number
             example: 15
-      filters:
-        type: array
-        items:
-          type: object
-          properties:
-            age:
-              type: object
-              properties:
-                gte:
-                  type: number
-                  example: 15
-                lte:
-                  type: number
-                  example: 72
-            risk:
-              type: object
-              properties:
-                gte:
-                  type: number
-                  example: 0.5
-                lte:
-                  type: number
-                  example: 0.9
-            date:
-              type: object
-              properties:
-                gte:
-                  type: string
-                  example: "25/03/20"
-                lte:
-                  type: number
-                  example: "27/03/20"
-      columns:
-        type: array
-        items:
-          type: string
-        example:
-          - idPatient
-          - risk
+      # filters:
+      #   type: array
+      #   items:
+      #     type: object
+      #     properties:
+      #       age:
+      #         type: object
+      #         properties:
+      #           gte:
+      #             type: number
+      #             example: 15
+      #           lte:
+      #             type: number
+      #             example: 72
+      #       risk:
+      #         type: object
+      #         properties:
+      #           gte:
+      #             type: number
+      #             example: 0.5
+      #           lte:
+      #             type: number
+      #             example: 0.9
+      #       date:
+      #         type: object
+      #         properties:
+      #           gte:
+      #             type: string
+      #             example: "25/03/20"
+      #           lte:
+      #             type: number
+      #             example: "27/03/20"
+      # columns:
+      #   type: array
+      #   items:
+      #     type: string
+      #   example:
+      #     - idPatient
+      #     - risk
       sortBy:
         type: array
         items:

@@ -16,6 +16,7 @@ import CityMap from "./components/CityMap/CityMap";
 import "bulma-calendar/dist/css/bulma-calendar.min.css"
 
 import "./index.css";
+import About from "containers/About/About";
 
 library.add(faTable, faUserCircle)
 
@@ -44,6 +45,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/map" component={CityMap} />
+          <Route exact path="/about" component={About} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
       </Fragment>

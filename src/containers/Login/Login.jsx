@@ -17,7 +17,6 @@ class Login extends Component  {
   }
 
   handleChange = event => {
-    console.log(event.target)
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -38,7 +37,7 @@ class Login extends Component  {
     return (
       <div id="login-page">
         <div className="header">
-          <img src={process.env.PUBLIC_URL + "/images/Group 47.png"} alt=""/>
+          <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt=""/>
         </div>
         <div className="content">
           <div className="wrapper">
