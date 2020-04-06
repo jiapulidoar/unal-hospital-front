@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import bulmaCalendar from 'bulma-calendar';
+import BulmaDatepicker from 'components/BulmaDatepicker/BulmaDatepicker.jsx'
 import DataTable from "../../components/Table/Table";
 import SideBar from "../../components/SideBar/SideBar";
 import { dataRank, semaphore, localidades, thresholds } from "../../data";
 
 import "./Dashboard.scss";
+
+const defaultFilters = {
+  ranking: "",
+  date: "",
+  age: "",
+  locality: ""
+}
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -13,7 +21,8 @@ export default class Dashboard extends Component {
     this.state = {
       currentSemaphore: null,
       ranking: null,
-      statistics: null
+      statistics: null,
+      filters: defaultFilters
     };
 
     this.setCurrentSemaphore = this.setCurrentSemaphore.bind(this)
@@ -35,10 +44,14 @@ export default class Dashboard extends Component {
     var element = document.querySelector('#date-filter');
     if(element){
       element.bulmaCalendar.on('select', (datepicker)=>{
+        this.onChangeFilters("date", datepicker.data.value())
         console.log(datepicker.data.value()); ////////asdfasdfsafsafdsadf FECHASFECHASFECHASFECHASFECHASFECHAS
       })
     }
+  }
 
+  onChangeFilters = (filter, value) => {
+    this.setState(prevState => ({ filters: { ...prevState.filters, [filter]: value } }))
   }
 
   setCurrentSemaphore = currentSemaphore => {
@@ -62,6 +75,7 @@ export default class Dashboard extends Component {
 
   render() {
     const { ranking, semaphore } = this.state    
+    console.log(this.state.filters)
 
     return (
 
@@ -78,46 +92,55 @@ export default class Dashboard extends Component {
                 <p>Filtrar por:</p>
               <div className="fields">
                 <div className="select">
-                  <select>
+                  <select
+                    value={this.state.filters.ranking}
+                    onChange={e => this.onChangeFilters("ranking", e.target.value)}>
                     <option>Ranking</option>
-                    <option>...</option>
+                    <option>Alto</option>
+                    <option>Medio</option>
+                    <option>Bajo</option>
                   </select>
                 </div>
 
-                <div className="field">
+                {/* <div className="field">
                   <p className="control has-icons-left">
                     <input id="date-filter" type="date"/>
                   </p>
-                </div>
+                </div> */}
+                <BulmaDatepicker onChange={this.onChangeFilters} />
 
                 {/* Localidad*/}
                 <div className="select">
-                  <select>
+                  <select 
+                    value={this.state.filters.age}
+                    onChange={e => this.onChangeFilters("age", e.target.value)}>
                     <option>Edad</option>
-                    <option>0-10 años</option>
-                    <option>10-20 años</option>
-                    <option>20-30 años</option>
-                    <option>30-40 años</option>
-                    <option>40-50 años</option>
-                    <option>50-60 años</option>
-                    <option>60-70 años</option>
-                    <option>70-80 años</option>
-                    <option>+80 años</option>
+                    <option value="10">0-10 años</option>
+                    <option value="20">10-20 años</option>
+                    <option value="30">20-30 años</option>
+                    <option value="40">30-40 años</option>
+                    <option value="50">40-50 años</option>
+                    <option value="60">50-60 años</option>
+                    <option value="70">60-70 años</option>
+                    <option value="80">70-80 años</option>
+                    <option value="90">+80 años</option>
                   </select>
                 </div>
 
                 {/* Localidad*/}
                 <div className="select">
-                  <select>
+                  <select
+                    value={this.state.filters.locality}
+                    onChange={e => this.onChangeFilters("locality", e.target.value)}>
                     <option value="">Localidad</option>
-                    {localidades.map(({id, name}) => <option key={id} value={id}>{name}</option>)}
+                    {localidades.map(({id, name}) => <option key={id}>{name}</option>)}
                   </select>
                 </div>
               </div>
 
               <div className="right buttons">
-                <button className="reset button">
-                  Reestablecer filtros
+                <button className="reset button" onClick={() => this.setState({ filters: defaultFilters })}>
+                  Restablecer filtros
                 </button>
                 <button className="filter button is-info is-outlined">
                   Filtrar
