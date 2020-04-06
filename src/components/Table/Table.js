@@ -46,6 +46,10 @@ handleToggle = (event,patient) => {
       idPatient: patient };
   });
 };
+
+onDetailClose = (patientToggle) => {
+  this.setState({ toggled: patientToggle });
+}
 /**/
 
  render() {
@@ -93,7 +97,10 @@ handleToggle = (event,patient) => {
       </div>
 
       <div className="container">
-        {this.state.toggled ? <PatientDetail toggled={true} idPatient={this.state.idPatient}/> : null}
+        {this.state.toggled ?
+          <PatientDetail onPatientDetail={this.onDetailClose}
+            toggled={true}
+            idPatient={this.state.idPatient}/> : null}
       </div>
     </div>
     )

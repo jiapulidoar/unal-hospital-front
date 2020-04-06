@@ -19,7 +19,7 @@ export default class PatientDetail extends Component {
       userType: "",
       geoLocation: {
         latitude: 0,
-        longitude: 0 
+        longitude: 0
       },
       location : "Suba", // Faked, improve later
       date: "",
@@ -55,7 +55,7 @@ export default class PatientDetail extends Component {
      }
      this.interval = setInterval(() => {
        this.get(this.props.idPatient)
-     }, 59000)  
+     }, 59000)
   }
 
   get(patient_id) {
@@ -70,6 +70,7 @@ export default class PatientDetail extends Component {
 
   close() {
     this.setState({ toggled: false });
+    this.props.onPatientDetail(false);
   }
 
   render() {
@@ -111,7 +112,7 @@ export default class PatientDetail extends Component {
                       </p>
                     </div>
                     )
-                  
+
                   return(
                     <Collapsible title={title} subtitle={subtitle} arrow_text="Ver detalle">
                       <p className="content">
