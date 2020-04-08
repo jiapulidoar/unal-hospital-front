@@ -31,7 +31,7 @@ export default class Dashboard extends Component {
 
   componentDidMount() {
     // fetch(...).then(...)
-    console.log(this.state)
+    //console.log(this.state)
     this.setState({
       ranking: dataRank,
       semaphore: semaphore
@@ -40,12 +40,12 @@ export default class Dashboard extends Component {
     const calendars = bulmaCalendar.attach('[type="date"]', {
       isRange: true
      });
-    this.updateGeoLoc()
+    //this.updateGeoLoc()
     var element = document.querySelector('#date-filter');
     if(element){
       element.bulmaCalendar.on('select', (datepicker)=>{
         this.onChangeFilters("date", datepicker.data.value())
-        console.log(datepicker.data.value()); ////////asdfasdfsafsafdsadf FECHASFECHASFECHASFECHASFECHASFECHAS
+        console.log("date",datepicker.data.value()); ////////asdfasdfsafsafdsadf FECHASFECHASFECHASFECHASFECHASFECHAS
       })
     }
   }
@@ -95,15 +95,22 @@ export default class Dashboard extends Component {
               patient.age >= parseInt(filter.age)-10
             )  || filter.age ===""
 
-        console.log("age",ageFilter,patient.age)
+        console.log("age",ageFilter)
         let rankFilter = (
             (filter.ranking === "high" && patient.risk > high)  || (filter.ranking === "medium" && patient.risk < high && patient.risk > medium)
               || (filter.ranking === "low" && patient.risk < medium)
             )  || filter.ranking ===""
+        console.log("rank",rankFilter)
+        var dateMin = new Date(filter.date.split(" - ")[0])
+        var dateMax = new Date(filter.date.split(" - ")[1])
+        var datePatient = new Date(patient.date.split(",")[0])
+        let dateFilter = (
+            (datePatient >= dateMin)
+            && (datePatient <= dateMax)
+          ) || filter.date==""
+        console.log("date",dateFilter)
 
-      console.log(rankFilter)
-        if (ageFilter &&  rankFilter )   ranking.push(patient)
-
+        if (ageFilter &&  rankFilter && dateFilter)   ranking.push(patient)
     }
      this.setState({ ranking })
   }
@@ -129,7 +136,7 @@ export default class Dashboard extends Component {
 
   render() {
     const { ranking, semaphore } = this.state
-    console.log(this.state.filters)
+    //console.log(this.state.filters)
 
     return (
 

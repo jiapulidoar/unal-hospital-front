@@ -6,7 +6,7 @@ function BulmaDatepicker(props) {
     const { onChange } = props
 
     useEffect(() => {
-        bulmaCalendar.attach('[type="date"]', { 
+        bulmaCalendar.attach('[type="date"]', {
             isRange: true
         });
 
@@ -33,4 +33,3 @@ BulmaDatepicker.propTypes = {
 }
 
 export default BulmaDatepicker
-

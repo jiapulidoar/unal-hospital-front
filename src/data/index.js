@@ -12,7 +12,7 @@ export const dataRank = [
            "latitude": 38.926639,
            "longitude": -77.033811
          },
-         date: "3/30/2020, 12:47:02 PM"
+         date: "3/24/2020, 12:47:02 PM"
       },
       {
           idPatient: "d@mail",
@@ -27,7 +27,7 @@ export const dataRank = [
             "latitude": 38.926639,
             "longitude": -77.033811
           },
-          date: "3/30/2020, 12:47:02 PM"
+          date: "3/23/2020, 12:47:02 PM"
       },
       {
           idPatient: "3",
@@ -42,7 +42,7 @@ export const dataRank = [
             "latitude": 38.926639,
             "longitude": -77.033811
           },
-          date: "3/30/2020, 12:47:02 PM"
+          date: "3/11/2020, 12:47:02 PM"
       },
       {
           idPatient: "2",
@@ -72,7 +72,7 @@ export const dataRank = [
             "latitude": 38.926639,
             "longitude": -77.033811
           },
-          date: "3/30/2020, 12:47:02 PM"
+          date: "3/7/2020, 12:47:02 PM"
       },
       {
           idPatient: "456",
