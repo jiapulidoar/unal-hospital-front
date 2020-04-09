@@ -46,10 +46,14 @@ class SideBar extends Component {
 
               <div className="menu">
                 <div className="menu-label">SECCIONES</div>
-                <div className="item">
+                <div className="active item">
                   <FontAwesomeIcon icon="table" />
                   Tabla de respuestas
                 </div>
+                {/* <div className="item" onClick={() => window.location.href = '/map'}>
+                  <FontAwesomeIcon icon="map" />
+                  Visualizador de mapa
+                </div> */}
               </div>
             </div>
           </div>

@@ -162,12 +162,7 @@ export default class Dashboard extends Component {
                     <option value="low">Bajo</option>
                   </select>
                 </div>
-
-                {/* <div className="field">
-                  <p className="control has-icons-left">
-                    <input id="date-filter" type="date"/>
-                  </p>
-                </div> */}
+                
                 <BulmaDatepicker onChange={this.onChangeFilters} />
 
                 {/* Localidad*/}

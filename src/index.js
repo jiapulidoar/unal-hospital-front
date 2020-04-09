@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTable, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faTable, faUserCircle, faMap } from '@fortawesome/free-solid-svg-icons'
 
 import Login from "./containers/Login/Login.jsx";
 import Dashboard from "./containers/Dashboard/Dashboard";
@@ -18,7 +18,7 @@ import "bulma-calendar/dist/css/bulma-calendar.min.css"
 import "./index.css";
 import About from "containers/About/About";
 
-library.add(faTable, faUserCircle)
+library.add(faTable, faUserCircle, faMap)
 
 const store = configureStore();
 
