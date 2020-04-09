@@ -7,7 +7,7 @@ export default class About extends Component {
         return (
             <div id="about-page">
                 <div className="columns">
-                    <div className="column is-two-fifths">
+                    <div className="column is-one-third">
                         <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt=""/>
                         {/* <img style={{ maxWidth: '60%' }} src={process.env.PUBLIC_URL + "/images/unal-white.png"} alt=""/>
                         <img style={{ maxWidth: '50%' }} src={process.env.PUBLIC_URL + "/images/hun-white.png"} alt=""/> */}
@@ -45,32 +45,34 @@ export default class About extends Component {
                                 David Guatava
                             </div>
                             <div className="column">
-
-                            <h3>Desarrollo móvil</h3>
-                            Jhonatan Torres <br />
-                            Jorge I. Andrés Contreras <br />
-                            Alejandro Díaz Vecchio
+                                <h3>Desarrollo móvil</h3>
+                                Jhonatan Torres <br />
+                                Jorge Contreras <br />
+                                Alejandro Díaz
                             </div>
                         </div>
 
                         <div className="columns">
                             <div className="column">
-                            <h3>Desarrollo Web</h3>
-                            José David Nieto<br />
-                            Antonio Fortich<br />
-                            David Perdomo<br />
-                            Edwin Mahecha<br />
-                            Lia Silva<br />
-                            Daniel Escobar<br />
+                                <h3>Desarrollo Web</h3>
+                                José David Nieto<br />
+                                Antonio Fortich<br />
+                                David Perdomo<br />
+                                Edwin Mahecha<br />
+                                Lia Silva<br />
+                                Daniel Escobar<br />
                             </div>
                             <div className="column">
-                            <h3>Desarrollo backend</h3>
-                            Dennis Joseph Salcedo<br />
-                            Jimmy Pulido<br />
-                            Juan Sebastian Chaves<br />
-                            Angel Corredor
+                                <h3>Desarrollo backend</h3>
+                                Dennis Salcedo<br />
+                                Jimmy Pulido<br />
+                                Juan Chaves<br />
+                                Angel Corredor
                             </div>
                             <div className="column">
+                                <h3>Gestión y análisis</h3>
+                                Carlos Sierra<br />
+                                Arles Rodríguez
                             </div>
                         </div>
 

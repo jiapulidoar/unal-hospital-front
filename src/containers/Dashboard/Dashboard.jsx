@@ -5,7 +5,7 @@ import DataTable from "../../components/Table/Table";
 import SideBar from "../../components/SideBar/SideBar";
 import { dataRank, semaphore, localidades, thresholds } from "../../data";
 
-import axios from 'axios';
+// import axios from 'axios';
 import "./Dashboard.scss";
 
 const defaultFilters = {
@@ -60,8 +60,9 @@ export default class Dashboard extends Component {
   }
   getGeoloc(lat,long){
     //GET HTTP method
-    axios.get('https://geocode.xyz/'+lat+','+long+'?json=1')
+    // axios.get('https://geocode.xyz/'+lat+','+long+'?json=1')
     //'+toString(lat)+','+toString(long)+'?json=1')
+    fetch('https://geocode.xyz/'+lat+','+long+'?json=1')
     .then(response => {
           console.log(response.data)
           const data = response
