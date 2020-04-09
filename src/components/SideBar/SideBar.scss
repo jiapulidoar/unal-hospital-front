@@ -44,14 +44,23 @@
 }
 
 .sidebar .top .menu .item {
+  margin-top: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 10px;
   border-radius: 4px;
-  color: white;
-  background: $primary;
   cursor: pointer;
+}
+
+.sidebar .top .menu .active.item,
+.sidebar .top .menu .active.item:hover {
+  background: $primary;
+  color: white;
+}
+
+.sidebar .top .menu .item:hover {
+  background: darken($color: $lightGray, $amount: 12)
 }
 
 .sidebar .bottom ul.menu-list {

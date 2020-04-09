@@ -9,8 +9,8 @@ export default class About extends Component {
                 <div className="columns">
                     <div className="column is-two-fifths">
                         <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt=""/>
-                        <img style={{ maxWidth: '60%' }} src={process.env.PUBLIC_URL + "/images/unal-white.png"} alt=""/>
-                        <img style={{ maxWidth: '50%' }} src={process.env.PUBLIC_URL + "/images/hun-white.png"} alt=""/>
+                        {/* <img style={{ maxWidth: '60%' }} src={process.env.PUBLIC_URL + "/images/unal-white.png"} alt=""/>
+                        <img style={{ maxWidth: '50%' }} src={process.env.PUBLIC_URL + "/images/hun-white.png"} alt=""/> */}
                     </div>
                     <div className="column">
                         <h1 className="subtitle">Acerca de MeCuido</h1>
