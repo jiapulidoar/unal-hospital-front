@@ -12,14 +12,14 @@ export const dataRank = [
            "latitude": 38.926639,
            "longitude": -77.033811
          },
-         date: "3/30/2020, 12:47:02 PM"
+         date: "3/24/2020, 12:47:02 PM"
       },
       {
           idPatient: "d@mail",
           risk: 0.69,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
-          age: 55,
+          age: 43,
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
@@ -27,7 +27,7 @@ export const dataRank = [
             "latitude": 38.926639,
             "longitude": -77.033811
           },
-          date: "3/30/2020, 12:47:02 PM"
+          date: "3/23/2020, 12:47:02 PM"
       },
       {
           idPatient: "3",
@@ -42,14 +42,14 @@ export const dataRank = [
             "latitude": 38.926639,
             "longitude": -77.033811
           },
-          date: "3/30/2020, 12:47:02 PM"
+          date: "3/11/2020, 12:47:02 PM"
       },
       {
           idPatient: "2",
           risk: 0.235,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
-          age: 55,
+          age: 76,
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
@@ -72,14 +72,14 @@ export const dataRank = [
             "latitude": 38.926639,
             "longitude": -77.033811
           },
-          date: "3/30/2020, 12:47:02 PM"
+          date: "3/7/2020, 12:47:02 PM"
       },
       {
           idPatient: "456",
           risk: 0.135,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
-          age: 55,
+          age: 45,
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
