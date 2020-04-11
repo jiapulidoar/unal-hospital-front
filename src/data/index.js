@@ -8,9 +8,11 @@ export const dataRank = [
          gender: "male",
          email: "example@example.com",
          userType: "doctor",
+         attended: 0,
          geoLocation: {
            "latitude": 38.926639,
-           "longitude": -77.033811
+           "longitude": -77.033811,
+           "locality": "Usaquén"
          },
          date: "3/24/2020, 12:47:02 PM"
       },
@@ -23,9 +25,11 @@ export const dataRank = [
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
+          attended: 0,
           geoLocation: {
             "latitude": 38.926639,
-            "longitude": -77.033811
+            "longitude": -77.033811,
+            "locality": "Usaquén"
           },
           date: "3/23/2020, 12:47:02 PM"
       },
@@ -38,9 +42,11 @@ export const dataRank = [
           gender: "female",
           email: "example@example.com",
           userType: "doctor",
+          attended: 0,
           geoLocation: {
             "latitude": 38.926639,
-            "longitude": -77.033811
+            "longitude": -77.033811,
+            "locality": "Teusaquillo"
           },
           date: "3/11/2020, 12:47:02 PM"
       },
@@ -53,9 +59,11 @@ export const dataRank = [
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
+          attended: 0,
           geoLocation: {
             "latitude": 38.926639,
-            "longitude": -77.033811
+            "longitude": -77.033811,
+            "locality": "Usaquén"
           },
           date: "3/30/2020, 12:47:02 PM"
       },
@@ -68,9 +76,11 @@ export const dataRank = [
           gender: "female",
           email: "example@example.com",
           userType: "doctor",
+          attended: 0,
           geoLocation: {
             "latitude": 38.926639,
-            "longitude": -77.033811
+            "longitude": -77.033811,
+            "locality": "Usaquén"
           },
           date: "3/7/2020, 12:47:02 PM"
       },
@@ -83,9 +93,11 @@ export const dataRank = [
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
+          attended: 0,
           geoLocation: {
             "latitude": 38.926639,
-            "longitude": -77.033811
+            "longitude": -77.033811,
+            "locality": "Chapinero"
           },
           date: "3/30/2020, 12:47:02 PM"
       },
@@ -98,9 +110,11 @@ export const dataRank = [
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
+          attended: 1,
           geoLocation: {
             "latitude": 38.926639,
-            "longitude": -77.033811
+            "longitude": -77.033811,
+            "locality": "Chapinero"
           },
           date: "3/30/2020, 12:47:02 PM"
       },
@@ -139,4 +153,8 @@ export const localidades = [
 export const thresholds = {
   high: 0.7,
   medium: 0.5
+}
+
+export const login = {
+  "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
