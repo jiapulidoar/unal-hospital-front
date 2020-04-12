@@ -8,7 +8,7 @@ export const dataRank = [
          gender: "male",
          email: "example@example.com",
          userType: "doctor",
-         attended: 0,
+         attended: 1,
          geoLocation: {
            "latitude": 38.926639,
            "longitude": -77.033811,
@@ -17,7 +17,7 @@ export const dataRank = [
          date: "3/24/2020, 12:47:02 PM"
       },
       {
-          idPatient: "d@mail",
+          idPatient: "041",
           risk: 0.69,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
@@ -102,7 +102,7 @@ export const dataRank = [
           date: "3/30/2020, 12:47:02 PM"
       },
       {
-          idPatient: "n@mail",
+          idPatient: "896",
           risk: 0.6,
           phoneNumber: 3144366789,
           name: "Jhon Doe",
@@ -110,7 +110,7 @@ export const dataRank = [
           gender: "male",
           email: "example@example.com",
           userType: "doctor",
-          attended: 1,
+          attended: 0,
           geoLocation: {
             "latitude": 38.926639,
             "longitude": -77.033811,
