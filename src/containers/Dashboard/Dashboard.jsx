@@ -159,7 +159,7 @@ export default class Dashboard extends Component {
                     onChange={e => this.onChangeFilters("ranking", e.target.value)}>
                     <option value="">Ranking</option>
                     <option value="high">Alto</option>
-                    <option value="medium">Medio</option>
+                    <option value="medium">Moderado</option>
                     <option value="low">Bajo</option>
                   </select>
                 </div>
@@ -171,7 +171,7 @@ export default class Dashboard extends Component {
                   <select
                     value={this.state.filters.age}
                     onChange={e => this.onChangeFilters("age", e.target.value)}>
-                    <option value="">Edad</option>
+                    <option value="">Cualquier edad</option>
                     <option value="10">0-10 años</option>
                     <option value="20">10-20 años</option>
                     <option value="30">20-30 años</option>
@@ -196,7 +196,7 @@ export default class Dashboard extends Component {
               </div>
 
               <div className="right buttons">
-                <button className="reset button" onClick={() => this.setState({ filters: defaultFilters })}>
+                <button className="reset button" onClick={() => this.setState({ filters: defaultFilters, ranking: dataRank })}>
                   Restablecer filtros
                 </button>
                 <button className="filter button is-info is-outlined" onClick={this.onSubmitFilters}>

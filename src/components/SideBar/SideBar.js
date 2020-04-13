@@ -65,14 +65,14 @@ class SideBar extends Component {
               {/*eslint-disable-next-line*/}
               <a className={`Dot ${selected === "high" ? "active" : ''}`} onClick={() => this.handleOnSelect("high")}>
                 <Ellipse color="red" />
-                Crítico ({semaphore ? semaphore.high : '...'})
+                Alto ({semaphore ? semaphore.high : '...'})
               </a>
             </li>
             <li>
               {/*eslint-disable-next-line*/}
               <a className={`Dot ${selected === "medium" ? "active" : ''}`} onClick={() => this.handleOnSelect("medium")}>
                 <Ellipse color="yellow" />
-                Medio ({semaphore ? semaphore.medium : '...'})
+                Moderado ({semaphore ? semaphore.medium : '...'})
               </a>
             </li>
             <li>
