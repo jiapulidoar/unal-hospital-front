@@ -51,6 +51,14 @@ onDetailClose = (patientToggle) => {
   this.setState({ toggled: patientToggle });
 }
 /**/
+  renderAttended(att){
+    if (att==1) {
+      return "SI"
+    }
+    else {
+      return "NO"
+    }
+  }
 
  render() {
    const { ranking } = this.props
@@ -67,6 +75,7 @@ onDetailClose = (patientToggle) => {
                   <th data-field="date">
                     <abbr title = "Position">ID Paciente</abbr>
                   </th>
+                  <th data-field="random">Atendido</th>
                   <th data-field="random">Rank</th>
                   <th data-field="random">Fecha</th>
                   <th data-field="random">Edad</th>
@@ -80,6 +89,7 @@ onDetailClose = (patientToggle) => {
                {ranking.map(patient =>
                   <tr key={patient.idPatient}>
                   <td>{patient.idPatient}</td>
+                  <td>{this.renderAttended(patient.attended)}</td>
                   <td className="risk">
                     <Ellipse color={patient.risk > 0.7 ? "red" : (patient.risk > 0.5 ? "yellow" : "green")} />
                     </td>

@@ -95,13 +95,12 @@ export default class Dashboard extends Component {
             patient.age <= parseInt(filter.age) &&
               patient.age >= parseInt(filter.age)-10
             )  || filter.age ===""
-
-        console.log("age",ageFilter)
+        //console.log("age",ageFilter)
         let rankFilter = (
             (filter.ranking === "high" && patient.risk > high)  || (filter.ranking === "medium" && patient.risk < high && patient.risk > medium)
               || (filter.ranking === "low" && patient.risk < medium)
             )  || filter.ranking ===""
-        console.log("rank",rankFilter)
+        //console.log("rank",rankFilter)
         var dateMin = new Date(filter.date.split(" - ")[0])
         var dateMax = new Date(filter.date.split(" - ")[1])
         var datePatient = new Date(patient.date.split(",")[0])
@@ -109,9 +108,11 @@ export default class Dashboard extends Component {
             (datePatient >= dateMin)
             && (datePatient <= dateMax)
           ) || filter.date==""
-        console.log("date",dateFilter)
-
-        if (ageFilter &&  rankFilter && dateFilter)   ranking.push(patient)
+        //console.log("date",dateFilter)
+        let localityFilter =
+            patient.geoLocation.locality == filter.locality
+            || filter.locality == ""
+        if (ageFilter &&  rankFilter && dateFilter && localityFilter)   ranking.push(patient)
     }
      this.setState({ ranking })
   }
@@ -163,7 +164,7 @@ export default class Dashboard extends Component {
                     <option value="low">Bajo</option>
                   </select>
                 </div>
-                
+
                 <BulmaDatepicker onChange={this.onChangeFilters} />
 
                 {/* Localidad*/}
@@ -190,7 +191,7 @@ export default class Dashboard extends Component {
                     value={this.state.filters.locality}
                     onChange={e => this.onChangeFilters("locality", e.target.value)}>
                     <option value="">Localidad</option>
-                    {localidades.map(({id, name}) => <option key={id}>{name}</option>)}
+                    {localidades.map(({id, name}) => <option key={id} value={name}>{name}</option>)}
                   </select>
                 </div>
               </div>
